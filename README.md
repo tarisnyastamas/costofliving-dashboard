@@ -1,1 +1,1 @@
-# costofliving-dashboard
+# Cost of living - Data dashboard

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost of living comparison</title>
+
+    <script src="https://d3js.org/d3.v4.js"></script>
+
+    <link rel="stylesheet" href="./css/modal.css">
+    <link rel="stylesheet" href="./css/main.css">
+
+</head>
+
+<body>
+
+    <!-- MODAL -->
+    <!-- Trigger/Open The Modal -->
+    <button id="modal-btn">Open Modal</button>
+
+    <!-- The Modal -->
+    <div id="modal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div id="map-cost-of-living">
+                <h2>map with cost of living indexes</h2>
+            </div>
+            <div class="modal-header">
+                <span class="close" id="modal-close">&times;</span>
+                <h2>Modal Header</h2>
+            </div>
+            <div class="modal-body">
+                <p>Some text in the Modal Body</p>
+                <p>Some other text...</p>
+            </div>
+            <div class="modal-footer">
+                <h3>Modal Footer</h3>
+                <button id="edit-modal-btn">Edit profile weights</button>
+
+                <!-- Edit weights sub-modal -->
+                <div id="edit-modal" class="modal">
+
+                    <!-- Sub-modal content -->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="close" id="edit-modal-close">&times;</span>
+                            <h2>Edit category and item weights</h2>
+                        </div>
+                        <div class="modal-body">
+                            <p>Some text in the Modal Body</p>
+                            <p>Some other text...</p>
+                        </div>
+                        <div class="modal-footer">
+                            <br>
+                            <button id="edit-modal-ok-btn">OK</button>
+                            <br><br>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- END OF MODAL -->
+
+</body>
+
+<script src="js/testing.js"></script>
+<script src="js/modal.js"></script>
+
+</html>

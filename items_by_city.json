@@ -1,0 +1,71 @@
+{
+	"city": {
+		"name": "name",
+		"lat": "lat",
+		"lon": "lon",
+		"population": "value",
+		"score": "weights * values",
+		"restaurants": {
+			"category_weight": "sum_of_categ_weights",
+			"item1": "value",
+			"item1_weight": "weight_value",
+			"item2": "value",
+			...
+		},
+		"markets": {
+			"category_weight": "sum_of_categ_weights",
+			"item1": "value",
+			"item1_weight": "weight_value",
+			...
+		},
+		"transportation": {
+			"category_weight": "sum_of_categ_weights",
+			"item1": "value",
+			"item1_weight": "weight_value",
+			...
+		},
+		"utilities": {
+			"category_weight": "sum_of_categ_weights",
+			"item1": "value",
+			"item1_weight": "weight_value",
+			...
+		},
+		"leisure": {
+			"category_weight": "sum_of_categ_weights",
+			"item1": "value",
+			"item1_weight": "weight_value",
+			...
+		},
+		"childcare": {
+			"category_weight": "sum_of_categ_weights",
+			"item1": "value",
+			"item1_weight": "weight_value",
+			...
+		},
+		"clothing": {
+			"category_weight": "sum_of_categ_weights",
+			"item1": "value",
+			"item1_weight": "weight_value",
+			...
+		},
+		"rent": {
+			"category_weight": "sum_of_categ_weights",
+			"item1": "value",
+			"item1_weight": "weight_value",
+			...
+		},
+		"apartment": {
+			"category_weight": "sum_of_categ_weights",
+			"item1": "value",
+			"item1_weight": "weight_value",
+			...
+		},
+		"salaries": {
+			"category_weight": "sum_of_categ_weights",
+			"item1": "value",
+			"item1_weight": "weight_value",
+			...
+		}
+	},
+	...
+}

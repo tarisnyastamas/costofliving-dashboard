@@ -1,0 +1,5 @@
+# Patterns
+
+# find whole group
+{(\n( )+".*)+\n( )*}
+

@@ -77,7 +77,7 @@ d3.json("https://raw.githubusercontent.com/feketebence/costofliving-dashboard/ma
     if (error) throw error;
 
     root = d3.hierarchy(root)
-        .sum(function (d) { return d.weights; })
+        .sum(function (d) { return d.size; })
         .sort(function (a, b) { return b.value - a.value; });
 
     var focus = root,

@@ -70,11 +70,14 @@ var pack = d3.pack()
     .size([diameter - margin, diameter - margin])
     .padding(2);
 
-d3.json("https://raw.githubusercontent.com/feketebence/costofliving-dashboard/main/data_munging/profile_weights/flare.json", function (error, root) {
+let testFilenameOnGithub = "flare.json";
+let filenameOnGithub = "equal_weights.json";
+
+d3.json("https://raw.githubusercontent.com/feketebence/costofliving-dashboard/main/data_munging/profile_weights/equal_weights.json", function (error, root) {
     if (error) throw error;
 
     root = d3.hierarchy(root)
-        .sum(function (d) { return d.size; })
+        .sum(function (d) { return d.weights; })
         .sort(function (a, b) { return b.value - a.value; });
 
     var focus = root,

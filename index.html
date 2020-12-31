@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="./css/modal.css">
     <link rel="stylesheet" href="./css/main.css">
 
+    <link rel="stylesheet" href="./css/weights_hierarchical_circle_packing.css">
+
 </head>
 
 <body>
@@ -24,16 +26,16 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-            <div id="map-cost-of-living">
-                <h2>map with cost of living indexes</h2>
-            </div>
+            
             <div class="modal-header">
                 <span class="close" id="modal-close">&times;</span>
                 <h2>Modal Header</h2>
             </div>
             <div class="modal-body">
-                <p>Some text in the Modal Body</p>
-                <p>Some other text...</p>
+                <div id="map-cost-of-living">
+                    <h2>map with cost of living indexes</h2>
+                </div>
+                <div id="circle-packing"></div>
             </div>
             <div class="modal-footer">
                 <h3>Modal Footer</h3>
@@ -67,7 +69,10 @@
 
 </body>
 
+
 <script src="js/testing.js"></script>
 <script src="js/modal.js"></script>
+
+<script src="js/weights_hierarchical_circle_packing.js"></script>
 
 </html>

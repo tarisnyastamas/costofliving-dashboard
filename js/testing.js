@@ -1,5 +1,3 @@
-console.log("Works!");
-
 var x = 42;
 
 logger = function(input) {

@@ -1,89 +1,285 @@
 {
-    "name": "Student",
-    "restaurants": {
-      "name": "restaurants",
-      "category_weight": 0.0,
-      "meal_inexpensive_restaurant_weight": 0.0,
-      "meal_mid_range_restaurant_weight": 0.0,
-      "mcdonalds_combo_weight": 0.0,
-      "domestic_beer_weight": 0.0,
-      "imported_beer_weight": 0.0,
-      "cappucino_weight": 0.0,
-      "coke_pepsi_weight": 0.0,
-      "water_weight": 0.0
-    },
-    "markets": {
-      "category_weight": 0.0,
-      "milk_weight": 0.0,
-      "bread_weight": 0.0,
-      "rice_weight": 0.0,
-      "eggs_weight": 0.0,
-      "cheese_weight": 0.0,
-      "chicken_weight": 0.0,
-      "beef_weight": 0.0,
-      "apple_weight": 0.0,
-      "banana_weight": 0.0,
-      "orange_weight": 0.0,
-      "tomato_weight": 0.0,
-      "potato_weight": 0.0,
-      "onion_weight": 0.0,
-      "lettuce_weight": 0.0,
-      "water_weight": 0.0,
-      "wine_weight": 0.0,
-      "beer_weight": 0.0,
-      "imported_beer_weight": 0.0,
-      "cigarettes_weight": 0.0
-    },
-    "transportation": {
-      "category_weight": 0.0,
-      "one_way_ticket_weight": 0.0,
-      "monthly_pass_weight": 0.0,
-      "taxi_start_weight": 0.0,
-      "taxi_1km_weight": 0.0,
-      "taxi_1h_weight": 0.0,
-      "gasoline_weight": 0.0,
-      "volkswagen_weight": 0.0,
-      "toyota_weight": 0.0
-    },
-    "utilities": {
-      "category_weight": 0.0,
-      "basic_weight": 0.0,
-      "prepaid_mobile_weight": 0.0,
-      "internet_weight": 0.0
-    },
-    "leisure": {
-      "category_weight": 0.0,
-      "fitness_club_weight": 0.0,
-      "tennis_court_weight": 0.0,
-      "cinema_weight": 0.0
-    },
-    "childcare": {
-      "category_weight": 0.0,
-      "preschool_weight": 0.0,
-      "primary_school_weight": 0.0
-    },
-    "clothing": {
-      "category_weight": 0.0,
-      "pair_of_jeans_weight": 0.0,
-      "summer_dress_weight": 0.0,
-      "running_shoes_weight": 0.0,
-      "business_shoes_weight": 0.0
-    },
-    "rent": {
-      "category_weight": 0.0,
-      "ap_1bedroom_center_weight": 0.0,
-      "ap_1bedroom_outside_weight": 0.0,
-      "ap_3bedroom_center_weight": 0.0,
-      "ap_3bedroom_outside_weight": 0.0
-    },
-    "apartment": {
-      "category_weight": 0.0,
-      "buy_apartment_center_weight": 0.0,
-      "buy_apartment_outside_weight": 0.0
-    },
-    "salary": {
-      "category_weight": 0.0,
-      "net_salary_weight": 0.0,
-      "mortgage_interest_weight": 0.0
-    }
-  }
+    "name": "Equal weights",
+    "children": [
+        {
+            "name": "Restaurants",
+            "category_weight": 40.0,
+            "children": [
+                {
+                    "name": "Meal, Inexpensive Restaurant",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Meal for 2 People, Mid-range Restaurant, Three-course",
+                    "weight": 5.0
+                },
+                {
+                    "name": "McMeal at McDonalds (or Equivalent Combo Meal)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Domestic Beer (0.5 liter draught)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Imported Beer (0.33 liter bottle)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Cappuccino (regular)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Coke/Pepsi (0.33 liter bottle)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Water (0.33 liter bottle)",
+                    "weight": 5.0
+                }
+            ]
+        },
+        {
+            "name": "Markets",
+            "category_weight": 95.0,
+            "children": [
+                {
+                    "name": "Milk (regular), (1 liter)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Loaf of Fresh White Bread (500g)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Rice (white), (1kg)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Eggs (regular) (12)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Local Cheese (1kg)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Chicken Fillets (1kg)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Beef Round (1kg)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Apples (1kg)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Banana (1kg)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Oranges (1kg)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Tomato (1kg)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Potato (1kg)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Onion (1kg)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Lettuce (1 head)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Water (1.5 liter bottle)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Bottle of Wine (Mid-Range)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Domestic Beer (0.5 liter bottle)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Imported Beer (0.33 liter bottle)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Cigarettes 20 Pack (Marlboro)",
+                    "weight": 5.0
+                }
+            ]
+        },
+        {
+            "name": "Transportation",
+            "category_weight": 40.0,
+            "children": [
+                {
+                    "name": "One-way Ticket (Local Transport)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Monthly Pass (Regular Price)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Taxi Start (Normal Tariff)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Taxi 1km (Normal Tariff)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Taxi 1hour Waiting (Normal Tariff)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Gasoline (1 liter)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Volkswagen Golf",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Toyota Corolla Sedan",
+                    "weight": 5.0
+                }
+            ]
+        },
+        {
+            "name": "Utilities",
+            "category_weight": 15.0,
+            "children": [
+                {
+                    "name": "Basic (Electricity, Heating, Cooling, Water, Garbage) for 85m2 Apartment",
+                    "weight": 5.0
+                },
+                {
+                    "name": "1 min. of Prepaid Mobile Tariff Local (No Discounts or Plans)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Internet (60 Mbps or More, Unlimited Data, Cable/ADSL)",
+                    "weight": 5.0
+                }
+            ]
+        },
+        {
+            "name": "Leisure",
+            "category_weight": 15.0,
+            "children": [
+                {
+                    "name": "Fitness Club, Monthly Fee for 1 Adult",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Tennis Court Rent (1 Hour on Weekend)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Cinema, International Release, 1 Seat",
+                    "weight": 5.0
+                }
+            ]
+        },
+        {
+            "name": "Childcare",
+            "category_weight": 10.0,
+            "children": [
+                {
+                    "name": "Preschool (or Kindergarten), Full Day, Private, Monthly for 1 Child",
+                    "weight": 5.0
+                },
+                {
+                    "name": "International Primary School, Yearly for 1 Child",
+                    "weight": 5.0
+                }
+            ]
+        },
+        {
+            "name": "Clothing",
+            "category_weight": 20.0,
+            "children": [
+                {
+                    "name": "1 Pair of Jeans (Levis 501 Or Similar)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "1 Summer Dress in a Chain Store (Zara, H&M, ...)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "1 Pair of Nike Running Shoes (Mid-Range)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "1 Pair of Men Leather Business Shoes",
+                    "weight": 5.0
+                }
+            ]
+        },
+        {
+            "name": "Rent",
+            "category_weight": 20.0,
+            "children": [
+                {
+                    "name": "Apartment (1 bedroom) in City Centre",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Apartment (1 bedroom) Outside of Centre",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Apartment (3 bedrooms) in City Centre",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Apartment (3 bedrooms) Outside of Centre",
+                    "weight": 5.0
+                }
+            ]
+        },
+        {
+            "name": "Apartment",
+            "category_weight": 10.0,
+            "children": [
+                {
+                    "name": "Price per Square Meter to Buy Apartment in City Centre",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Price per Square Meter to Buy Apartment in Outside of Centre",
+                    "weight": 5.0
+                }
+            ]
+        },
+        {
+            "name": "Salary",
+            "category_weight": 10.0,
+            "children": [
+                {
+                    "name": "Average Monthly Net Salary (After Tax)",
+                    "weight": 5.0
+                },
+                {
+                    "name": "Mortgage Interest Rate in Percentages (%), Yearly, for 20 Years Fixed-Rate",
+                    "weight": 5.0
+                }
+            ]
+        }
+    ]
+}

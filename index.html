@@ -6,62 +6,195 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cost of living comparison</title>
 
+    <!-- CSS sources -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://d3js.org/d3.v4.js"></script>
-
-
-    <link rel="stylesheet" href="./css/modal.css">
+    <link rel="stylesheet" href="css/typeahead.css">
+    <!-- <link rel="stylesheet" href="./css/modal.css"> -->
     <link rel="stylesheet" href="./css/main.css">
-    <!-- ...CSS LINK -->
-
     <link rel="stylesheet" href="./css/weights_hierarchical_circle_packing.css">
+
+    <!-- JS sources -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- typeahead js sources -->
+    <script src="js/typeahead.js/bloodhound.js"></script>
+    <script src="js/typeahead.js/typeahead.bundle.js"></script>
+    <script src="js/typeahead.js/typeahead.jquery.js"></script>
+
 
 </head>
 
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-info">
-        <a class="navbar-brand text-white" href="#"><span style="margin-right: 10px;"></span>Cost of Living</a>
+        <!-- <a class="navbar-brand text-white" href="#"><span style="margin-right: 10px;"></span>Cost of Living Dashboard</a> -->
         <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+            <!-- <h3 class="h3 text-white navbar-text">Profile: 
+                <span style="margin-right: 2px;"></span>
+                <span id="profile-span">Student</span>
+                <span style="margin-right: 30px;"></span>
+            </h3> -->
+            <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
+                Profile: <span id="profile-span">Student</span>
+            </button>
+            <span style="margin-right: 100px;"></span>
+
+            <h3 class="h3 text-white navbar-text">You are comparing<span style="margin-right: 10px;"></span></h3>
+
+            <form class="form-inline">
+                <input id="city1" class="typeahead form-control mr-sm-2" placeholder="First city"
+                    aria-label="Search" type="text" autocomplete="on">
+            </form>
+
+            <h3 class="h3 text-white navbar-text"><span style="margin-right: 10px;"></span>and<span style="margin-right: 10px;"></span></h3>
+
+            <form class="form-inline">
+                <input id="city2" class="typeahead form-control mr-sm-2" placeholder="Second city"
+                    aria-label="Search" type="text" autocomplete="on">
+            </form>
+
             <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <span class="navbar-text">
-                        <p class="h3 text-white">You are comparing <span style="margin-right: 10px;"></span></p>
-                    </span>
+                <li>
+                    <button id="submit-cities-button" type="button" class="btn btn-primary">Go!</button>
                 </li>
-                <li class="nav-item">
-                    <form class="form-inline">
-                        <input id="city-one" class="form-control mr-sm-2 basicAutoComplete" type="search"
-                            placeholder="City one" aria-label="Search">
-                    </form>
-
-                </li>
-                <li class="nav-item active">
-                    <span class="navbar-text">
-                        <p class="h3 text-white"><span style="margin-right: 10px;"></span>and <span
-                                style="margin-right: 10px;"></span></p>
-                    </span>
-                </li>
-                <li class="nav-item">
-                    <form class="form-inline">
-                        <input id="city-two" class="form-control mr-sm-2 basicAutoComplete" type="search"
-                            placeholder="City two" aria-label="Search">
-                    </form>
-
-                </li>
+                <!-- <li>
+                    <span style="margin-right: 10px;"></span>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Change profile</button>
+                </li> -->
             </ul>
+
         </div>
     </nav>
 
+    <!-- Bootstrap modal for weights and map visualization -->
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                    <div id="map-cost-of-living">
+                        <h2>map with cost of living indexes</h2>
+                    </div>
+
+                    <!-- profile selector dropdown -->
+                    <form>
+                        <div class="form-group row">
+                            <div class="col-2"></div>
+                            <div class="col-8 justify-content-center">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">Current profile </div>
+                                    </div>
+                                    <select id="profile-selector" name="profile-selector" class="custom-select"
+                                    aria-describedby="profile-selectorHelpBlock">
+                                    <option value="rabbit">Student</option>
+                                    <option value="duck">Duck</option>
+                                    <option value="fish">Fish</option>
+                                </select>
+                                </div>                                
+                            </div>
+                        </div>
+                    </form>
+                      
+
+
+
+                    <div id="circle-packing"></div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <!-- button to open the weights modal -->
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-weights-modal-lg">
+                        Edit weights
+                    </button>
+                    
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- Bootstrap modal for weight setting selection -->
+    <div class="modal fade bd-weights-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+    
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit weights for <span id="profile-span">Student</span></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+    
+                <div class="modal-body">
+                    <p>Weight editor form goes here.</p>
+                    <h3>some text</h3>
+                    <h3>some text</h3>
+                    <h3>some text</h3>
+                    <h3>some text</h3>
+                    <h3>some text</h3>
+                    <h3>some text</h3>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save weights</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- The main div containing everything -->
     <div class="container-fluid" style="padding: 1em 2em 0em 2em;">
+
+
+
+        
         <!-- MODAL -->
         <!-- Trigger/Open The Modal -->
         <!-- <button id="modal-btn">Open Modal</button> -->
 
         <div class="container-fluid w-100 border border-dark">Vizu 1</div>
-        <h2>This is going to change to <span id="city1-placeholder">city1</span></h2>
-        <h2>This is going to change to <span id="city2-placeholder">city2</span></h2>
+        <h2>Selected city1 is <span id="city1-placeholder">city1</span></h2>
+        <h2>Selected city2 is <span id="city2-placeholder">city2</span></h2>
 
         <!-- The Modal -->
         <div id="modal" class="modal">
@@ -112,21 +245,15 @@
 
 
 
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-        <script
-            src="https://cdn.jsdelivr.net/gh/xcash/bootstrap-autocomplete@v2.3.7/dist/latest/bootstrap-autocomplete.min.js"></script>
+        <!-- Dependencies -->
+                <!-- Bootstrap 4 Typeahead -->
+        <!-- <script src="js/bootstrap_plugins/bootstrap-typeahead.js"></script> -->
 </body>
 
 <script src="js/navbar.js"></script>
-<!-- <script src="js/testing.js"></script> -->
+<script src="js/testing.js"></script>
+<script src="js/readSelectedCities.js"></script>
+
 <!-- <script src="js/modal.js"></script> -->
 
 <!-- <script src="js/weights_hierarchical_circle_packing.js"></script> -->

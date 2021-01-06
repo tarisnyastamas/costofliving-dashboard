@@ -12,6 +12,71 @@ let restaurantCappucino = document.querySelector("#restaurant-meal-cappucino");
 let restaurantCoke = document.querySelector("#restaurant-meal-coke");
 let restaurantWater = document.querySelector("#restaurant-meal-water");
 
+let marketCategWeight = document.querySelector("#market-categ-span");
+let marketMilk = document.querySelector("#market-milk");
+let marketLoaf = document.querySelector("#market-loaf");
+let marketRice = document.querySelector("#market-rice");
+let marketEggs = document.querySelector("#market-eggs");
+let marketCheese = document.querySelector("#market-cheese");
+let marketChicken = document.querySelector("#market-chicken");
+let marketBeef = document.querySelector("#market-beef");
+let marketApple = document.querySelector("#market-apple");
+let marketBanana = document.querySelector("#market-banana");
+let marketOrange = document.querySelector("#market-orange");
+let marketTomato = document.querySelector("#market-tomato");
+let marketPotato = document.querySelector("#market-potato");
+let marketOnion = document.querySelector("#market-onion");
+let marketLettuce = document.querySelector("#market-lettuce");
+let marketWater = document.querySelector("#market-water");
+let marketWine = document.querySelector("#market-wine");
+let marketDomBeer = document.querySelector("#market-dombeer");
+let marketImpBeer = document.querySelector("#market-impbeer");
+let marketCig = document.querySelector("#market-cig");
+
+let transportationCategWeight = document.querySelector("#transportation-categ-span");
+let transportationOneway = document.querySelector("#transportation-oneway");
+let transportationMonthly = document.querySelector("#transportation-monthly");
+let transportationTaxiStart = document.querySelector("#transportation-taxi-start");
+let transportationTaxi1km = document.querySelector("#transportation-taxi-1km");
+let transportationTaxi1h = document.querySelector("#transportation-taxi-1h");
+let transportationGas = document.querySelector("#transportation-gas");
+let transportationVolkswagen = document.querySelector("#transportation-volkswagen");
+let transportationToyota = document.querySelector("#transportation-toyota");
+
+let utilsCategWeight = document.querySelector("#utility-categ-span");
+let utilsBasics = document.querySelector("#utility-basics");
+let utilsMobile = document.querySelector("#utility-mobile");
+let utilsInternet = document.querySelector("#utility-internet");
+
+let leisureCategWeight = document.querySelector("#leisure-categ-span");
+let leisureFitness = document.querySelector("#leisure-fitness");
+let leisureTennis = document.querySelector("#leisure-tennis");
+let leisureCinema = document.querySelector("#leisure-cinema");
+
+let childcareCategWeight = document.querySelector("#childcare-categ-span");
+let childcareKindergarten = document.querySelector("#childcare-kindergarten");
+let childcarePrimarySchool = document.querySelector("#childcare-primary-school");
+
+let clothingCategWeight = document.querySelector("#clothing-categ-span");
+let clothingJeans = document.querySelector("#clothing-jeans");
+let clothingSummerDress = document.querySelector("#clothing-dress");
+let clothingNike = document.querySelector("#clothing-nike");
+let clothingShoes = document.querySelector("#clothing-business-shoe");
+
+let rentCategWeight = document.querySelector("#rent-categ-span");
+let rent1Center  = document.querySelector("#rent-1-center");
+let rent1Outside = document.querySelector("#rent-1-outside");
+let rent3Center  = document.querySelector("#rent-3-center");
+let rent3Outside = document.querySelector("#rent-3-outside");
+
+let apartmentCategWeight = document.querySelector("#apartment-categ-weight");
+let apartmentCenter = document.querySelector("#apartment-center");
+let apartmentOutside = document.querySelector("#apartment-outside");
+
+let salaryCategWeight = document.querySelector("#salary-categ-span");
+let salary = document.querySelector("#salary");
+let salaryMortgage = document.querySelector("#salary-mortgage");
+
 let weights = {
     restaurants : {
         inexp: 0,

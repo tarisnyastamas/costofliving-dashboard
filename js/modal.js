@@ -9,8 +9,8 @@ var editModalBtn = document.getElementById("edit-modal-btn");
 // Get the <span> element that closes the modal
 var span = document.getElementById("modal-close");
 var editSpan = document.getElementById("edit-modal-close");
-
 var editOkBtn = document.getElementById("edit-modal-ok-btn");
+
 
 
 // When the user clicks the button, open the modal 
@@ -43,3 +43,4 @@ window.onclick = function (event) {
         editModal.style.display = "none";
     }
 }
+

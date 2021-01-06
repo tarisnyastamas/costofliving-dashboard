@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<link rel="stylesheet" href="radar-chart.css">
+<head>
+  <style>
+    body {
+      padding: 20px;
+    }
+    .radar-chart .area {
+      fill-opacity: 0.7;
+    }
+    .radar-chart.focus .area {
+      fill-opacity: 0.3;
+    }
+    .radar-chart.focus .area.focused {
+      fill-opacity: 0.9;
+    }
+    .area.germany, .germany .circle {
+      fill: #FFD700;
+      stroke: none;
+    }
+    .area.argentina, .argentina .circle {
+      fill: #ADD8E6;
+      stroke: none;
+    }
+  </style>
+
+  <script type="text/javascript" src="http://d3js.org/d3.v3.js"></script>
+  <script type="text/javascript" src="radar-chart.js"></script>
+  <script type="text/javascript" src="numbeo_comparison.js"></script>
+
+  
+
+  </head>
+  <body>
+
+<script type="text/javascript">
+    var a_city = "Budapest";
+    var b_city = "Bucharest";
+    var categories = ["restaurants","markets","utilities","leisure","clothing"];
+    var a_city_data = "" + a_city + ",";
+    var b_city_data = "" + b_city + ",";
+    for (const j in categories){
+      var category_sum = 0;
+      for (const i in categories_data[categories[j]]){
+        category_sum = category_sum + json_data[a_city][categories[j]][categories_data[categories[j]][i]];
+      }
+      a_city_data = a_city_data + String(category_sum) + ",";
+    }
+    a_city_data = a_city_data.slice(0, -1);
+    a_city_data = a_city_data + "\n";
+
+    for (const j in categories){
+          var category_sum = 0;
+          for (const i in categories_data[categories[j]]){
+            category_sum = category_sum + json_data[b_city][categories[j]][categories_data[categories[j]][i]];
+          }
+      b_city_data = b_city_data + String(category_sum) + ",";
+      }
+      b_city_data = b_city_data.slice(0, -1);
+      b_city_data = b_city_data + "\n";
+      var header = "city,restaurants,markets,utilities,leisure,clothing \n";
+      var text_data =  header + a_city_data + b_city_data;
+
+      
+
+  function showRadar(){
+  data = [];
+  var chart = RadarChart.chart();
+  
+  // var c = document.getElementById("data").value,
+  var c = text_data;
+      w = 600;
+      h = 600;
+  csv = c.split("\n").map(function(i){return i.split(",")})
+  headers = []
+  csv.forEach(function(item, i){
+    if(i==0){
+      headers = item;
+    }else{
+      newSeries = {};
+      item.forEach( function(v, j){
+        if(j==0){
+          newSeries.className = v;
+          newSeries.axes = [];
+        }else{
+          newSeries.axes.push({"axis":[headers[j]], "value": parseFloat(v)});
+        }
+      });
+      data.push(newSeries);
+    }
+  })
+RadarChart.defaultConfig.radius = 3;
+RadarChart.defaultConfig.w = w;
+RadarChart.defaultConfig.h = h;
+RadarChart.draw("#chart-container", data);
+function animate(elem,time) {
+    if( !elem) return;
+    var to = elem.offsetTop;
+    var from = window.scrollY;
+    var start = new Date().getTime(),
+        timer = setInterval(function() {
+            var step = Math.min(1,(new Date().getTime()-start)/time);
+            window.scrollTo(0,(from+step*(to-from))+1);
+            if( step == 1){ clearInterval(timer);};
+        },25);
+        window.scrollTo(0,(from+1));
+    }
+
+var divVal = document.getElementById('chart-container');
+animate(divVal,600);
+}
+window.onload = function() {
+  showRadar();
+};
+</script>
+
+
+<div id="chart-container"></div>
+<script type="text/javascript">
+    //RadarChart.defaultConfig.levelTick = true;
+  </script>
+
+</body>
+</html>

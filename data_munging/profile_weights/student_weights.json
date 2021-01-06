@@ -1,0 +1,285 @@
+{
+    "name": "Equal weights",
+    "children": [
+        {
+            "name": "Restaurants",
+            "category_size": 40.0,
+            "children": [
+                {
+                    "name": "Meal, Inexpensive Restaurant",
+                    "size": 5.0
+                },
+                {
+                    "name": "Meal for 2 People, Mid-range Restaurant, Three-course",
+                    "size": 5.0
+                },
+                {
+                    "name": "McMeal at McDonalds (or Equivalent Combo Meal)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Domestic Beer (0.5 liter draught)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Imported Beer (0.33 liter bottle)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Cappuccino (regular)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Coke/Pepsi (0.33 liter bottle)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Water (0.33 liter bottle)",
+                    "size": 5.0
+                }
+            ]
+        },
+        {
+            "name": "Markets",
+            "category_size": 95.0,
+            "children": [
+                {
+                    "name": "Milk (regular), (1 liter)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Loaf of Fresh White Bread (500g)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Rice (white), (1kg)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Eggs (regular) (12)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Local Cheese (1kg)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Chicken Fillets (1kg)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Beef Round (1kg)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Apples (1kg)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Banana (1kg)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Oranges (1kg)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Tomato (1kg)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Potato (1kg)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Onion (1kg)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Lettuce (1 head)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Water (1.5 liter bottle)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Bottle of Wine (Mid-Range)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Domestic Beer (0.5 liter bottle)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Imported Beer (0.33 liter bottle)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Cigarettes 20 Pack (Marlboro)",
+                    "size": 5.0
+                }
+            ]
+        },
+        {
+            "name": "Transportation",
+            "category_size": 40.0,
+            "children": [
+                {
+                    "name": "One-way Ticket (Local Transport)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Monthly Pass (Regular Price)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Taxi Start (Normal Tariff)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Taxi 1km (Normal Tariff)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Taxi 1hour Waiting (Normal Tariff)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Gasoline (1 liter)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Volkswagen Golf",
+                    "size": 5.0
+                },
+                {
+                    "name": "Toyota Corolla Sedan",
+                    "size": 5.0
+                }
+            ]
+        },
+        {
+            "name": "Utilities",
+            "category_size": 15.0,
+            "children": [
+                {
+                    "name": "Basic (Electricity, Heating, Cooling, Water, Garbage) for 85m2 Apartment",
+                    "size": 5.0
+                },
+                {
+                    "name": "1 min. of Prepaid Mobile Tariff Local (No Discounts or Plans)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Internet (60 Mbps or More, Unlimited Data, Cable/ADSL)",
+                    "size": 5.0
+                }
+            ]
+        },
+        {
+            "name": "Leisure",
+            "category_size": 15.0,
+            "children": [
+                {
+                    "name": "Fitness Club, Monthly Fee for 1 Adult",
+                    "size": 5.0
+                },
+                {
+                    "name": "Tennis Court Rent (1 Hour on Weekend)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Cinema, International Release, 1 Seat",
+                    "size": 5.0
+                }
+            ]
+        },
+        {
+            "name": "Childcare",
+            "category_size": 10.0,
+            "children": [
+                {
+                    "name": "Preschool (or Kindergarten), Full Day, Private, Monthly for 1 Child",
+                    "size": 5.0
+                },
+                {
+                    "name": "International Primary School, Yearly for 1 Child",
+                    "size": 5.0
+                }
+            ]
+        },
+        {
+            "name": "Clothing",
+            "category_size": 20.0,
+            "children": [
+                {
+                    "name": "1 Pair of Jeans (Levis 501 Or Similar)",
+                    "size": 5.0
+                },
+                {
+                    "name": "1 Summer Dress in a Chain Store (Zara, H&M, ...)",
+                    "size": 5.0
+                },
+                {
+                    "name": "1 Pair of Nike Running Shoes (Mid-Range)",
+                    "size": 5.0
+                },
+                {
+                    "name": "1 Pair of Men Leather Business Shoes",
+                    "size": 5.0
+                }
+            ]
+        },
+        {
+            "name": "Rent",
+            "category_size": 20.0,
+            "children": [
+                {
+                    "name": "Apartment (1 bedroom) in City Centre",
+                    "size": 5.0
+                },
+                {
+                    "name": "Apartment (1 bedroom) Outside of Centre",
+                    "size": 5.0
+                },
+                {
+                    "name": "Apartment (3 bedrooms) in City Centre",
+                    "size": 5.0
+                },
+                {
+                    "name": "Apartment (3 bedrooms) Outside of Centre",
+                    "size": 5.0
+                }
+            ]
+        },
+        {
+            "name": "Apartment",
+            "category_size": 10.0,
+            "children": [
+                {
+                    "name": "Price per Square Meter to Buy Apartment in City Centre",
+                    "size": 5.0
+                },
+                {
+                    "name": "Price per Square Meter to Buy Apartment in Outside of Centre",
+                    "size": 5.0
+                }
+            ]
+        },
+        {
+            "name": "Salary",
+            "category_size": 10.0,
+            "children": [
+                {
+                    "name": "Average Monthly Net Salary (After Tax)",
+                    "size": 5.0
+                },
+                {
+                    "name": "Mortgage Interest Rate in Percentages (%), Yearly, for 20 Years Fixed-Rate",
+                    "size": 5.0
+                }
+            ]
+        }
+    ]
+}

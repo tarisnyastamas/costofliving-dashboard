@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<div class="dropdown">
+    <label for="cars">Choose a category:</label>
+    <select name="cars" id="categories" onchange="window.location='file:///C:/Users/nagyg/Adatviz_projekt/grouped_bars.html?category=' + this.value;">
+      <option disabled selected value> -- select an option -- </option>
+      <option value="restaurants">restaurants</option>
+      <option value="markets">markets</option>
+      <option value="transportation">transportation</option>
+      <option value="leisure">leisure</option>
+      <option value="clothing">clothing</option>
+      <option value="apartment">apartment</option>
+      <option value="salary">salary</option>
+
+    </select>
+ </div>
+ <svg width="800" height="600"></svg>   
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<style>
+
+    * {
+        font-family: 'Lato', sans-serif;
+        color:  #000;
+        font-size: 0.8rem;
+    }
+
+    .dropdown{
+        position: relative;
+    }
+
+    .experiment text {
+        color: #fff;
+        font-size: 0.9rem;
+        pointer-events: none;
+    }
+
+    .legend {
+        font-size: 1rem;
+    }
+
+    .yAxisLabel,.xAxisLabel{
+        font-size: 2rem;
+    }
+    .toolTip {
+        position: absolute;
+        display: none;
+        min-width: 80px;
+        height: auto;
+        background: none repeat scroll 0 0 #ffffff;
+        border: 1px solid #ddd;
+        padding: 6px;
+        text-align: center;
+    }
+    .bar{
+        pointer-events: all;
+        cursor:pointer;
+    }
+    h4{
+        padding: 0;
+        margin: 0;
+       /* text-align: center;*/
+    }
+    .v2 {
+        color: #1F78B4;
+    }
+    .v21{
+        color: #33A02C;
+    }
+    .v5{
+        color: #000;
+    }
+    .v6{
+        margin-bottom:4px;
+    }
+
+</style>
+<script type="text/javascript" src="numbeo_comparison.js"></script>
+<script>
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const category1 = urlParams.get('category')
+
+    a_city = "Bucharest";
+    b_city = "Budapest";
+
+    var categories_data = {restaurants : ["meal_inexpensive_restaurant", "meal_mid_range_restaurant", "mcdonalds_combo", "domestic_beer","imported_beer", "cappucino", "coke_pepsi", "water"],
+                       markets : ["milk", "bread", "eggs", "cheese", "chicken", "banana", "tomato", "potato", "lettuce", "water", "beer", "cigarettes"],
+                       transportation : ["one_way_ticket", "monthly_pass", "taxi_start", "taxi_1km", "taxi_1h", "gasoline", "volkswagen", "toyota"], 
+                       utitlities : ["basic", "prepaid_mobile", "internet"],
+                       leisure : ["fitness_club", "tennis_court", "cinema"],
+                       childcare : ["preschool", "primary_school"],
+                       clothing : ["pair_of_jeans", "summer_dress", "running_shoes", "business_shoes"], 
+                       rent : ["ap_1bedroom_center", "ap_1bedroom_outside", "ap_3bedroom_center", "ap_3bedroom_outside"],
+                       apartment : ["buy_apartment_center","buy_apartment_outside"],
+                       salary : ["net_salary", "mortgage_interest"]}
+
+    var data = []
+    sel_cat = category1;
+    for (const i in categories_data[sel_cat]){
+    data.push({label : [categories_data[sel_cat][i]], v2 : json_data[a_city][sel_cat][categories_data[sel_cat][i]], v21 : json_data[b_city][sel_cat][categories_data[sel_cat][i]]});
+    }
+
+    /*var c20 = "#A6CEE3";
+    var c21 = "#B2DF8A"; */
+    var c20 = "#1F78B4";
+    var c21 = "#33A02C";
+    var v5 = "#000"
+
+
+    var svg = d3.select("svg"),
+        width = +svg.attr("width"),
+        height = +svg.attr("height"),
+        margin = {top: 20, right: 30, bottom: 40, left: 40},
+        radius = 16,
+        xDomain = [0, 150],
+        yDomain = categories_data[sel_cat];
+
+    var color = d3.scaleOrdinal()
+        .range(d3.schemeCategory10);
+
+    var xScale = d3.scaleLinear()
+        .domain(xDomain)
+        .range([0, width - margin.left - margin.right]);
+
+    var yScale = d3.scaleBand()
+        .paddingInner(0.5)
+        .rangeRound([height, 0])
+        .domain(yDomain);
+
+    var xAxis = d3.axisBottom(xScale);
+    var yAxis = d3.axisLeft(yScale);
+
+    var paddingLeft = 300;
+    var legendHeight = 50;
+    var chartContainer = svg
+        .attr('width', (width + margin.right + margin.left))
+        .attr('height', (height + margin.top + margin.bottom + legendHeight))
+        .append('g')
+        .attr('id', 'chartcontainer')
+        .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+    /*var xAxisEl = chartContainer.append('g')
+     .attr('class', 'x axis')
+     .attr('transform', 'translate(0,' + height + ')')
+     .call(xAxis)*/
+    /*var yAxisEl = chartContainer.append('g')
+        .attr('class', 'y axis')
+        .attr('transform', 'translate(' + margin.left + ',' + (legendHeight) + ')')
+        .call(yAxis); */
+    var drawarea = chartContainer.append('g')
+        .attr('class', 'draw-area')
+        .attr('width', width)
+        .attr('height', height)
+        .attr('transform', 'translate(0,' + legendHeight + ')');
+
+    var tooltip = d3.select("body").append("div").attr("class", "toolTip");
+
+    function legendEl(container, color, label, xPos) {
+        container.append("rect")
+            .attr("class", "legend")
+            .attr("x", xPos)
+            .attr("height", 20)
+            .attr("y", 20)
+            .attr("width", 20)
+            .attr("fill", color)
+        container.append("text")
+            .attr("class", "legend")
+            .attr("x", xPos + 25)
+            .attr("y", 20)
+            .attr("dy", "1.2rem")
+            .attr("fill", color)
+            .attr("text-anchor", "start")
+            .text(label);
+    }
+    legendEl(chartContainer, c20, a_city, width - 200);
+    legendEl(chartContainer, c21, b_city, width - 100);
+
+    chartContainer.append("text")
+        .attr("class", "yAxisLabel")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("fill", "#000")
+        .attr("text-anchor", "start")
+        .attr('transform', 'translate(-20,' + ((height-30)) + ')rotate(-90)')
+    chartContainer.append("text")
+        .attr("class", "xAxisLabel")
+        .attr("x", 30)
+        //.attr("y", height + legendHeight + margin.bottom)
+        .attr("y", legendHeight)
+        .attr("fill", "#000")
+        .attr("text-anchor", "start")
+        .text(sel_cat)
+        .attr('transform', 'translate(0,0)')
+
+
+    var experiment = drawarea.selectAll(".experiment")
+        .data(data)
+        .enter().append("g")
+        .attr("class", "experiment")
+
+
+    experiment.append("text")
+        .attr("class", "label")
+        .attr("x", paddingLeft / 2)
+        .attr("y", function (d) {
+            return yScale(d.label);
+        })
+        .attr("dy", "2rem")
+        .attr("fill", "#000")
+        .attr("text-anchor", "end")
+        .text(function (d) {
+            return d.label
+        });
+
+    function comparison(v21,v2) {
+      if (v21 > v2){
+          return 'more expensive'
+      }else{
+        return 'cheaper'
+      }
+    }
+
+    function fillTmpl(label,v2,v21,a_city,b_city){
+        /*return '<h4>'+label + ' samples</h4><h4 style="margin-bottom:4px">'+Math.round((Math.abs(v21 - v2) / v2) * 1000) / 10 + '% Faster </h4><span class="v2">Old Version: ' + v2 + 's <br/></span><span class="v21">New Version: '+ v21 + 's <br/></span>'*/
+        return '<span class="v5">'+ label +' '+ '<span class="v5">' + Math.round((Math.abs(v21 - v2) / v2) * 1000) / 10 + '% '+comparison(v21,v2)+' </span>' +' </br> </span>'+'<span class="v2">'+a_city+' :' + v2 + 's <br/></span><span class="v21">'+b_city+' :'+v21 + ' <br/></span>'
+    }
+
+    experiment.append("rect")
+        .attr("class", "bar")
+        .attr("x", paddingLeft)
+        .attr("height", 20)
+        .attr("y", function (d) {
+            return yScale(d.label);
+        })
+        .attr("width", function (d) {
+            return xScale(d.v2);
+        })
+        .attr("fill", c20)
+        .on("mousemove", function(d){
+            tooltip
+                .style("left", d3.event.pageX + "px")
+                .style("top", d3.event.pageY - 80 + "px")
+                .style("display", "inline-block")
+                .html(fillTmpl(d.label,d.v2,d.v21,a_city,b_city));
+        })
+        .on("mouseout", function(d){ tooltip.style("display", "none");});
+
+    experiment.append("text")
+        .attr("x", function (d) {
+            return xScale(d.v2) + paddingLeft + 30
+        })
+        .attr("y", function (d) {
+            return yScale(d.label);
+        })
+        .attr("dy", "1.1rem") 
+        .attr("dx", "-0.2rem")
+        .attr("fill", "#000")
+        .attr("text-anchor", "end")
+        .text(function (d) {
+            return d.v2
+        });
+
+    experiment.append("rect")
+        .attr("class", "bar")
+        .attr("x", paddingLeft)
+        .attr("height", 20)
+        .attr("y", function (d) {
+            return yScale(d.label) + 25;
+        })
+        .attr("width", function (d) {
+            return xScale(d.v21);
+        })
+        .attr("fill", c21)
+        .on("mousemove", function(d){
+            tooltip
+                .style("left", d3.event.pageX + "px")
+                .style("top", d3.event.pageY - 80 + "px")
+                .style("display", "inline-block")
+                .html(fillTmpl(d.label,d.v2,d.v21,a_city,b_city));
+        })
+        .on("mouseout", function(d){ tooltip.style("display", "none");})
+
+    experiment.append("text")
+        .attr("x", function (d) {
+            return xScale(d.v21) + paddingLeft + 35
+        })
+        .attr("y", function (d) {
+            return yScale(d.label) + 25;
+        })
+        .attr("dy", "1.1rem")
+        .attr("dx", "-0.2rem")
+        .attr("fill", "#000")
+        .attr("text-anchor", "end")
+        .text(function (d) {
+            return d.v21
+        });
+
+    experiment.append("text")
+        .attr("x", function (d) {
+            return xScale(d.v21) + paddingLeft + 10
+        })
+        .attr("y", function (d) {
+            return yScale(d.label) + 25;
+        })
+        .attr("dy", "1.1rem")
+        .attr("dx", "-0.2rem")
+        .attr("fill", v5)
+        .attr("text-anchor", "start")
+     
+
+    chartContainer.append("line")          // attach a line
+        .style("stroke", "#999")  // colour the line
+        .style("stroke-width", "0.5")  // colour the line
+        .attr("x1", paddingLeft - 10)     // x position of the first end of the line
+        .attr("y1", legendHeight)      // y position of the first end of the line
+        .attr("x2", paddingLeft - 10)     // x position of the second end of the line
+        .attr("y2", height+legendHeight + 15);
+</script>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+var e = document.getElementById("categories");
+var category = e.value;
+</script>

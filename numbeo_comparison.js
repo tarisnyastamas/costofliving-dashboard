@@ -1,8 +1,13 @@
-var categories_data = {
-
-   restaurants : ["meal_inexpensive_restaurant","meal_mid_range_restaurant","mcdonalds_combo","domestic_beer","imported_beer","cappucino","coke_pepsi","water"]
-
-}
+var categories_data = {restaurants : ["meal_inexpensive_restaurant", "meal_mid_range_restaurant", "mcdonalds_combo", "domestic_beer","imported_beer", "cappucino", "coke_pepsi", "water"],
+                       markets : ["milk", "bread", "eggs", "cheese", "chicken", "banana", "tomato", "potato", "lettuce", "water", "beer", "cigarettes"],
+                       transportation : ["one_way_ticket", "monthly_pass", "taxi_start", "taxi_1km", "taxi_1h", "gasoline", "volkswagen", "toyota"], 
+                       utilities : ["basic", "prepaid_mobile", "internet"],
+                       leisure : ["fitness_club", "tennis_court", "cinema"],
+                       childcare : ["preschool", "primary_school"],
+                       clothing : ["pair_of_jeans", "summer_dress", "running_shoes", "business_shoes"], 
+                       rent : ["ap_1bedroom_center", "ap_1bedroom_outside", "ap_3bedroom_center", "ap_3bedroom_outside"],
+                       apartment : ["buy_apartment_center","buy_apartment_outside"],
+                       salary : ["net_salary", "mortgage_interest"]}
 
 var json_data = {
    "Hamilton":{

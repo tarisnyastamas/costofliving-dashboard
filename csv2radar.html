@@ -35,6 +35,9 @@
 
   </head>
   <body>
+<div>
+      <svg id="legend" height=200 width=450></svg>
+</div>
 
 <script type="text/javascript">
     var a_city = "Budapest";
@@ -115,8 +118,17 @@ animate(divVal,600);
 window.onload = function() {
   showRadar();
 };
-</script>
 
+// select the svg area
+var legend = d3.select("#legend")
+
+// Handmade legend
+legend.append("circle").attr("cx",200).attr("cy",130).attr("r", 6).style("fill", "#FFD700")
+legend.append("circle").attr("cx",200).attr("cy",160).attr("r", 6).style("fill", "#ADD8E6")
+legend.append("text").attr("x", 220).attr("y", 130).text(a_city).style("font-size", "15px").attr("alignment-baseline","middle")
+legend.append("text").attr("x", 220).attr("y", 160).text(b_city).style("font-size", "15px").attr("alignment-baseline","middle")
+
+</script>
 
 <div id="chart-container"></div>
 <script type="text/javascript">

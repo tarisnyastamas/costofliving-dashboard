@@ -643,6 +643,7 @@ let city2_input = document.querySelector('#city2')
 let submitButton = document.querySelector('#submit-cities-button');
 let placeholderCity1 = document.querySelector('#city1-placeholder')
 let placeholderCity2 = document.querySelector('#city2-placeholder')
+let profileSpan = document.querySelector("#profile-span");
 
 let selectedCity1 = 'Cluj-napoca';
 let selectedCity2 = 'Paris';

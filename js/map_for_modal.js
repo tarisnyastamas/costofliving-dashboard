@@ -12,7 +12,7 @@
         .attr("height", height)
         .attr("class","canvas");
         
-        var data1=d3.json("world.json")
+        var data1=d3.json("https://raw.githubusercontent.com/feketebence/costofliving-dashboard/main/data/world.json")
         var data2=d3.csv("city_index_coord.csv")
         
         function ready(error, data1, data2){

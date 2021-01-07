@@ -7,27 +7,27 @@
             "children": [
                 {
                     "name": "Meal, Inexpensive Restaurant",
-                    "size": 5.0
+                    "size": 30.0
                 },
                 {
                     "name": "Meal for 2 People, Mid-range Restaurant, Three-course",
-                    "size": 5.0
+                    "size": 0.0
                 },
                 {
                     "name": "McMeal at McDonalds (or Equivalent Combo Meal)",
-                    "size": 5.0
+                    "size": 0.0
                 },
                 {
                     "name": "Domestic Beer (0.5 liter draught)",
-                    "size": 5.0
+                    "size": 0.0
                 },
                 {
                     "name": "Imported Beer (0.33 liter bottle)",
-                    "size": 5.0
+                    "size": 0.0
                 },
                 {
                     "name": "Cappuccino (regular)",
-                    "size": 5.0
+                    "size": 0.0
                 },
                 {
                     "name": "Coke/Pepsi (0.33 liter bottle)",

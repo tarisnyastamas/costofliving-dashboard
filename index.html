@@ -32,7 +32,7 @@
 
         <div class="navbar-collapse justify-content-center" id="navbarNavDropdown">
 
-            <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
+            <button type="button" class="btn btn-lg btn-primary" id="profile-btn" data-toggle="modal" data-target=".bd-example-modal-lg">
                 Profile: <span id="profile-span">Student</span>
             </button>
             <span style="margin-right: 100px;"></span>
@@ -61,12 +61,12 @@
     </nav>
 
     <!-- Bootstrap modal for weights and map visualization -->
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    <div class="modal fade bd-example-modal-lg" id="losModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-scrollable">
             <div class="modal-content">
 
-                <div class="modal-body">
+                <div class="modal-body" id="circle-packing-body">
                     <div id="map-cost-of-living" class="bg-success">
                         <h2>map with cost of living indexes goes here</h2>
                         <br>
@@ -100,12 +100,6 @@
 
 
                     <div id="circle-packing" class="bg-warning">
-                        <h2>circle packing goes here</h2>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
                     </div>
 
                 </div>
@@ -482,12 +476,12 @@
 <script src="js/testing.js"></script>
 <script src="js/readSelectedCities.js"></script>
 
-<!-- <script src="js/modal.js"></script> -->
+<!-- <script src="js/modal.js"></script> EZ LEHET NEM IS FOG KELLENI--> 
 <script src="js/weights.js"></script>
 <script src="js/weights_io.js"></script>
 
 
-<!-- <script src="js/weights_hierarchical_circle_packing.js"></script> -->
+<script src="js/weights_hierarchical_circle_packing.js"></script>
 
 
 </html>

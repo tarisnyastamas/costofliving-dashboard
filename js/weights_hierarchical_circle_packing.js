@@ -1,62 +1,26 @@
 let circlePackingContainer = document.getElementById("circle-packing");
-let modalHeader = document.getElementsByClassName("modal-header")[0];
-let modalBody = document.getElementsByClassName("modal-body")[0];
-let modalFooter = document.getElementsByClassName("modal-footer")[0];
-
-// Get the modal
-var modal = document.getElementById("modal");
-var editModal = document.getElementById("edit-modal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("modal-btn");
-var editModalBtn = document.getElementById("edit-modal-btn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementById("modal-close");
-var editSpan = document.getElementById("edit-modal-close");
-
-var editOkBtn = document.getElementById("edit-modal-ok-btn");
-
-// When the user clicks the button, open the modal 
-btn.onclick = function () {
-    modal.style.display = "block";
-}
-
-editModalBtn.onclick = function () {
-    editModal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-    modal.style.display = "none";
-}
-
-editSpan.onclick = function () {
-    editModal.style.display = "none";
-}
-
-editOkBtn.onclick = function () {
-    editModal.style.display = "none";
-}
-
-if (modal.style.display = "block") {
-    circlePackingContainer.style.height = modalBody.clientWidth + "px";
-}
+let modalBody = document.querySelector("#circle-packing-body");
 
 let svg = d3.select("#circle-packing")
-    .append("svg");
+    .append("svg")
 
-function redraw() {
-
-    circlePackingContainer.style.height = modalBody.clientWidth + "px";
+function redrawCirclePacking() {
 
     // setting the size of the svg element to the size of the container that is containing the whole visualization
     width = circlePackingContainer.clientWidth;
     height = circlePackingContainer.clientHeight;
 
+    //delete the old
+    // let domSvg = document.querySelector("#circle-packing");
+
+    // while (domSvg.hasChildNodes()) {
+    //     domSvg.removeChild(domSvg.firstChild);
+    // }
+
     svg
-        .attr("width", width)
-        .attr("height", width)
+        .attr("width", circlePackingContainer.clientWidth)
+        .attr("height", circlePackingContainer.clientWidth)
+        .append("svg")
 
     let margin = 20;
     let diameter = +svg.attr("width");
@@ -76,6 +40,14 @@ function redraw() {
 
     d3.json("https://raw.githubusercontent.com/feketebence/costofliving-dashboard/main/data_munging/profile_weights/equal_weights.json", function (error, root) {
         if (error) throw error;
+
+        console.log(root);
+
+        if(profileSelected) {
+            console.log(profileSelected)
+            // root = weight
+        }
+         
 
         root = d3.hierarchy(root)
             .sum(function (d) { return d.size; })
@@ -100,25 +72,25 @@ function redraw() {
             .style("display", function (d) { return d.parent === root ? "inline" : "none"; })
             .text(function (d) {
                 if (d.data.size === undefined) {
-                    return d.data.name + d.data.category_size;
+                    return d.data.name +" "+ d.data.category_size;
                 } else {
-                    return d.data.name + "\n Size: " + d.data.size;
+                    return d.data.name + " Weight: " + d.data.size;
                 }
             });
 
-        var text2 = g.selectAll("text")
-            .data(nodes)
-            .enter().append("text")
-            .attr("class", "label")
-            .style("fill-opacity", function (d) { return d.parent === root ? 1 : 0; })
-            .style("display", function (d) { return d.parent === root ? "inline" : "none"; })
-            .text(function (d) {
-                if (d.data.size === undefined) {
-                    return d.data.name + d.data.category_size;
-                } else {
-                    return d.data.name + "\n Size: " + d.data.size;
-                }
-            });
+        // var text2 = g.selectAll("text")
+        //     .data(nodes)
+        //     .enter().append("text")
+        //     .attr("class", "label")
+        //     .style("fill-opacity", function (d) { return d.parent === root ? 1 : 0; })
+        //     .style("display", function (d) { return d.parent === root ? "inline" : "none"; })
+        //     .text(function (d) {
+        //         if (d.data.size === undefined) {
+        //             return d.data.name + d.data.category_size;
+        //         } else {
+        //             return d.data.name + "\n Size: " + d.data.size;
+        //         }
+        //     });
 
         var node = g.selectAll("circle,text");
 
@@ -154,12 +126,13 @@ function redraw() {
 
 }
 
-redraw();
+redrawCirclePacking();
 
-window.addEventListener("resize", redraw);
+window.addEventListener("resize", redrawCirclePacking);
 
-
-
+$('#losModal').on('show.bs.modal', function(e) {
+    setTimeout(() => { redrawCirclePacking()}, 500);
+});
 
 
 

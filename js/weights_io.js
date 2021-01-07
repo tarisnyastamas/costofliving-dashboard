@@ -3,7 +3,7 @@ weightsOutput = {
     "children": [
         {
             "name": "Restaurants",
-            "category_size": 40.0,
+            "category_size": calculateTotal(weights.restaurants),
             "children": [
                 {
                     "name": "Meal, Inexpensive Restaurant",
@@ -41,7 +41,7 @@ weightsOutput = {
         },
         {
             "name": "Markets",
-            "category_size": 95.0,
+            "category_size": calculateTotal(weights.markets),
             "children": [
                 {
                     "name": "Milk (regular), (1 liter)",
@@ -123,7 +123,7 @@ weightsOutput = {
         },
         {
             "name": "Transportation",
-            "category_size": 40.0,
+            "category_size": calculateTotal(weights.transportation),
             "children": [
                 {
                     "name": "One-way Ticket (Local Transport)",
@@ -161,7 +161,7 @@ weightsOutput = {
         },
         {
             "name": "Utilities",
-            "category_size": 15.0,
+            "category_size": calculateTotal(weights.utilities),
             "children": [
                 {
                     "name": "Basic (Electricity, Heating, Cooling, Water, Garbage) for 85m2 Apartment",
@@ -179,7 +179,7 @@ weightsOutput = {
         },
         {
             "name": "Leisure",
-            "category_size": 15.0,
+            "category_size": calculateTotal(weights.leisure),
             "children": [
                 {
                     "name": "Fitness Club, Monthly Fee for 1 Adult",
@@ -197,7 +197,7 @@ weightsOutput = {
         },
         {
             "name": "Childcare",
-            "category_size": 10.0,
+            "category_size": calculateTotal(weights.childcare),
             "children": [
                 {
                     "name": "Preschool (or Kindergarten), Full Day, Private, Monthly for 1 Child",
@@ -211,7 +211,7 @@ weightsOutput = {
         },
         {
             "name": "Clothing",
-            "category_size": 20.0,
+            "category_size": calculateTotal(weights.clothing),
             "children": [
                 {
                     "name": "1 Pair of Jeans (Levis 501 Or Similar)",
@@ -233,7 +233,7 @@ weightsOutput = {
         },
         {
             "name": "Rent",
-            "category_size": 20.0,
+            "category_size": calculateTotal(weights.rent),
             "children": [
                 {
                     "name": "Apartment (1 bedroom) in City Centre",
@@ -255,7 +255,7 @@ weightsOutput = {
         },
         {
             "name": "Apartment",
-            "category_size": 10.0,
+            "category_size": calculateTotal(weights.apartment),
             "children": [
                 {
                     "name": "Price per Square Meter to Buy Apartment in City Centre",
@@ -269,7 +269,7 @@ weightsOutput = {
         },
         {
             "name": "Salary",
-            "category_size": 10.0,
+            "category_size": calculateTotal(weights.salary),
             "children": [
                 {
                     "name": "Average Monthly Net Salary (After Tax)",

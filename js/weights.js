@@ -217,150 +217,150 @@ function updateIOWeights() {
         "children": [
             {
                 "name": "Restaurants",
-                "category_size": 40.0,
+                "category_size": calculateTotal(weights.restaurants),
                 "children": [
                     {
                         "name": "Meal, Inexpensive Restaurant",
                         "size": weights.restaurants.inexp
                     },
                     {
-                        "name": "Meal for 2 People, Mid-range Restaurant, Three-course",
+                        "name": "Three-course meal for 2 People",
                         "size": weights.restaurants.mid
                     },
                     {
-                        "name": "McMeal at McDonalds (or Equivalent Combo Meal)",
+                        "name": "Meal at McDonalds",
                         "size": weights.restaurants.mcdonalds
                     },
                     {
-                        "name": "Domestic Beer (0.5 liter draught)",
+                        "name": "Domestic Beer (0.5l)",
                         "size": weights.restaurants.domBeer
                     },
                     {
-                        "name": "Imported Beer (0.33 liter bottle)",
+                        "name": "Imported Beer (0.33l)",
                         "size": weights.restaurants.importedBeer
                     },
                     {
-                        "name": "Cappuccino (regular)",
+                        "name": "Cappuccino",
                         "size": weights.restaurants.cappucino
                     },
                     {
-                        "name": "Coke/Pepsi (0.33 liter bottle)",
+                        "name": "Coke/Pepsi (0.33l)",
                         "size": weights.restaurants.coke
                     },
                     {
-                        "name": "Water (0.33 liter bottle)",
+                        "name": "Water (0.33l)",
                         "size": weights.restaurants.water
                     }
                 ]
             },
             {
                 "name": "Markets",
-                "category_size": 95.0,
+                "category_size": calculateTotal(weights.markets),
                 "children": [
                     {
-                        "name": "Milk (regular), (1 liter)",
+                        "name": "Milk",
                         "size": weights.markets.milk
                     },
                     {
-                        "name": "Loaf of Fresh White Bread (500g)",
+                        "name": "White Bread",
                         "size": weights.markets.loaf
                     },
                     {
-                        "name": "Rice (white), (1kg)",
+                        "name": "Rice",
                         "size": weights.markets.rice
                     },
                     {
-                        "name": "Eggs (regular) (12)",
+                        "name": "Eggs",
                         "size": weights.markets.eggs
                     },
                     {
-                        "name": "Local Cheese (1kg)",
+                        "name": "Local Cheese",
                         "size": weights.markets.cheese
                     },
                     {
-                        "name": "Chicken Fillets (1kg)",
+                        "name": "Chicken Fillets",
                         "size": weights.markets.chicken
                     },
                     {
-                        "name": "Beef Round (1kg)",
+                        "name": "Beef Round",
                         "size": weights.markets.beef
                     },
                     {
-                        "name": "Apples (1kg)",
+                        "name": "Apples",
                         "size": weights.markets.apple
                     },
                     {
-                        "name": "Banana (1kg)",
+                        "name": "Banana",
                         "size": weights.markets.banana
                     },
                     {
-                        "name": "Oranges (1kg)",
+                        "name": "Oranges",
                         "size": weights.markets.orange
                     },
                     {
-                        "name": "Tomato (1kg)",
+                        "name": "Tomato",
                         "size": weights.markets.tomato
                     },
                     {
-                        "name": "Potato (1kg)",
+                        "name": "Potato",
                         "size": weights.markets.potato
                     },
                     {
-                        "name": "Onion (1kg)",
+                        "name": "Onion",
                         "size": weights.markets.onion
                     },
                     {
-                        "name": "Lettuce (1 head)",
+                        "name": "Lettuce",
                         "size": weights.markets.lettuce
                     },
                     {
-                        "name": "Water (1.5 liter bottle)",
+                        "name": "Water",
                         "size": weights.markets.water
                     },
                     {
-                        "name": "Bottle of Wine (Mid-Range)",
+                        "name": "Bottle of Wine",
                         "size": weights.markets.wine
                     },
                     {
-                        "name": "Domestic Beer (0.5 liter bottle)",
+                        "name": "Domestic Beer",
                         "size": weights.markets.domBeer
                     },
                     {
-                        "name": "Imported Beer (0.33 liter bottle)",
+                        "name": "Imported Beer",
                         "size": weights.markets.impBeer
                     },
                     {
-                        "name": "Cigarettes 20 Pack (Marlboro)",
+                        "name": "Cigarettes",
                         "size": weights.markets.cig
                     }
                 ]
             },
             {
                 "name": "Transportation",
-                "category_size": 40.0,
+                "category_size": calculateTotal(weights.transportation),
                 "children": [
                     {
-                        "name": "One-way Ticket (Local Transport)",
+                        "name": "One-way Ticket",
                         "size": weights.transportation.oneway
                     },
                     {
-                        "name": "Monthly Pass (Regular Price)",
+                        "name": "Monthly Pass",
                         "size": weights.transportation.monthly
                     },
                     {
-                        "name": "Taxi Start (Normal Tariff)",
+                        "name": "Taxi Start",
                         "size": weights.transportation.taxistart
                     },
                     {
-                        "name": "Taxi 1km (Normal Tariff)",
+                        "name": "Taxi 1km",
                         "size": weights.transportation.taxi1km
                     },
                     {
-                        "name": "Taxi 1hour Waiting (Normal Tariff)",
+                        "name": "Taxi 1hour waiting",
                         "size": weights.transportation.taxi1h
                     },
                     {
-                        "name": "Gasoline (1 liter)",
+                        "name": "1l Gasoline",
                         "size": weights.transportation.gas
                     },
                     {
@@ -375,122 +375,122 @@ function updateIOWeights() {
             },
             {
                 "name": "Utilities",
-                "category_size": 15.0,
+                "category_size": calculateTotal(weights.utilities),
                 "children": [
                     {
-                        "name": "Basic (Electricity, Heating, Cooling, Water, Garbage) for 85m2 Apartment",
+                        "name": "Basics for 85m2 Ap",
                         "size": weights.utilities.basics
                     },
                     {
-                        "name": "1 min. of Prepaid Mobile Tariff Local (No Discounts or Plans)",
+                        "name": "1 min. of Prepaid Mobile",
                         "size": weights.utilities.mobile
                     },
                     {
-                        "name": "Internet (60 Mbps or More, Unlimited Data, Cable/ADSL)",
+                        "name": "Internet ( >60 Mbps)",
                         "size": weights.utilities.internet
                     }
                 ]
             },
             {
                 "name": "Leisure",
-                "category_size": 15.0,
+                "category_size": calculateTotal(weights.leisure),
                 "children": [
                     {
-                        "name": "Fitness Club, Monthly Fee for 1 Adult",
+                        "name": "Gym, monthly Fee",
                         "size": weights.leisure.fitness
                     },
                     {
-                        "name": "Tennis Court Rent (1 Hour on Weekend)",
+                        "name": "Tennis Court Rent",
                         "size": weights.leisure.tennis
                     },
                     {
-                        "name": "Cinema, International Release, 1 Seat",
+                        "name": "Cinema",
                         "size": weights.leisure.cinema
                     }
                 ]
             },
             {
                 "name": "Childcare",
-                "category_size": 10.0,
+                "category_size": calculateTotal(weights.childcare),
                 "children": [
                     {
-                        "name": "Preschool (or Kindergarten), Full Day, Private, Monthly for 1 Child",
+                        "name": "Kindergarten",
                         "size": weights.childcare.kindergarten
                     },
                     {
-                        "name": "International Primary School, Yearly for 1 Child",
+                        "name": "International Primary School",
                         "size": weights.childcare.primary_school
                     }
                 ]
             },
             {
                 "name": "Clothing",
-                "category_size": 20.0,
+                "category_size": calculateTotal(weights.clothing),
                 "children": [
                     {
-                        "name": "1 Pair of Jeans (Levis 501 Or Similar)",
+                        "name": "Jeans (Levis 501 Or Similar)",
                         "size": weights.clothing.jeans
                     },
                     {
-                        "name": "1 Summer Dress in a Chain Store (Zara, H&M, ...)",
+                        "name": "Summer Dress in a Chain Store",
                         "size": weights.clothing.dress
                     },
                     {
-                        "name": "1 Pair of Nike Running Shoes (Mid-Range)",
+                        "name": "Nike Running Shoes",
                         "size": weights.clothing.nike
                     },
                     {
-                        "name": "1 Pair of Men Leather Business Shoes",
+                        "name": "Men Leather Business Shoes",
                         "size": weights.clothing.shoes
                     }
                 ]
             },
             {
                 "name": "Rent",
-                "category_size": 20.0,
+                "category_size": calculateTotal(weights.rent),
                 "children": [
                     {
-                        "name": "Apartment (1 bedroom) in City Centre",
+                        "name": "Apartment (1 bedroom) in centre",
                         "size": weights.rent.center1
                     },
                     {
-                        "name": "Apartment (1 bedroom) Outside of Centre",
+                        "name": "Apartment (1 bedroom) outside of centre",
                         "size": weights.rent.outside1
                     },
                     {
-                        "name": "Apartment (3 bedrooms) in City Centre",
+                        "name": "Apartment (3 bedrooms) in centre",
                         "size": weights.rent.center3
                     },
                     {
-                        "name": "Apartment (3 bedrooms) Outside of Centre",
+                        "name": "Apartment (3 bedrooms) outside of centre",
                         "size": weights.rent.outside3
                     }
                 ]
             },
             {
                 "name": "Apartment",
-                "category_size": 10.0,
+                "category_size": calculateTotal(weights.apartment),
                 "children": [
                     {
-                        "name": "Price per Square Meter to Buy Apartment in City Centre",
+                        "name": "Price per m² to buy apartment in centre",
                         "size": weights.apartment.center
                     },
                     {
-                        "name": "Price per Square Meter to Buy Apartment in Outside of Centre",
+                        "name": "Price per m² to buy apartment outside of centre",
                         "size": weights.apartment.outside
                     }
                 ]
             },
             {
                 "name": "Salary",
-                "category_size": 10.0,
+                "category_size": calculateTotal(weights.salary),
                 "children": [
                     {
-                        "name": "Average Monthly Net Salary (After Tax)",
+                        "name": "Avg. Monthly Net Salary",
                         "size": weights.salary.salaryMonthly
                     },
                     {
-                        "name": "Mortgage Interest Rate in Percentages (%), Yearly, for 20 Years Fixed-Rate",
+                        "name": "Mortgage Interest Rate (%), Yearly, for 20 Years Fixed-Rate",
                         "size": weights.salary.salaryMortgage
                     }
                 ]
@@ -499,6 +499,7 @@ function updateIOWeights() {
     }
 
 }
+updateIOWeights();
 
 function updateWeights(weightsToUpdate, weightData) {
 
@@ -679,7 +680,7 @@ profileSelectorDropdown.addEventListener('change', () => {
     profileSpan.innerHTML = selectedProflie;
 
     let url = 'https://raw.githubusercontent.com/feketebence/costofliving-dashboard/main/data_munging/profile_weights/' + selectedProflie + '_weights.json';
-    console.log("Weight data source = " + url);
+    // console.log("Weight data source = " + url);
 
     
 
@@ -693,6 +694,7 @@ profileSelectorDropdown.addEventListener('change', () => {
 
             // function call to update input field values
             updateWeights(weights, profileWeights);
+            updateIOWeights()
             updateFormValues();
 
             profileSelected = true;

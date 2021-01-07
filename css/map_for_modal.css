@@ -1,5 +1,5 @@
 .canvas{
-        position: absolute;
+        /* position: absolute; */
         top: 25%;
         left: 15%;
         background: lightblue;
@@ -14,8 +14,9 @@
         padding: 7px;
         border: 4px;
         line-height: 1.6rem;
-        width: 26%;
-        background: khaki;
+        width: 12%;
+        background: white;
         border-width: medium;
         border-style: solid;
+        z-index: 100;
     }

@@ -7,7 +7,8 @@
     <title>Cost of living comparison</title>
 
     <!-- CSS sources -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="css/typeahead.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/weights_hierarchical_circle_packing.css">
@@ -18,9 +19,15 @@
     <!-- JS sources -->
     <script src="https://d3js.org/d3.v4.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"></script>
 
     <!-- typeahead js sources -->
     <script src="js/typeahead.js/bloodhound.js"></script>
@@ -31,11 +38,13 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-info">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-md navbar-light bg-dark">
 
         <div class="navbar-collapse justify-content-center" id="navbarNavDropdown">
 
-            <button type="button" class="btn btn-lg btn-primary" id="profile-btn" data-toggle="modal" data-target=".bd-example-modal-lg">
+            <button type="button" class="btn btn-lg btn-info" id="profile-btn" data-toggle="modal"
+                data-target=".bd-example-modal-lg">
                 Profile: <span id="profile-span">Student</span>
             </button>
             <span style="margin-right: 100px;"></span>
@@ -43,20 +52,21 @@
             <h3 class="h3 text-white navbar-text">Compare<span style="margin-right: 10px;"></span></h3>
 
             <form class="form-inline">
-                <input id="city1" class="typeahead form-control mr-sm-2" placeholder="First city"
-                    aria-label="Search" type="text" autocomplete="on">
+                <input id="city1" class="typeahead form-control mr-sm-2" placeholder="First city" aria-label="Search"
+                    type="text" autocomplete="on">
             </form>
 
-            <h3 class="h3 text-white navbar-text"><span style="margin-right: 10px;"></span>and<span style="margin-right: 10px;"></span></h3>
+            <h3 class="h3 text-white navbar-text"><span style="margin-right: 10px;"></span>and<span
+                    style="margin-right: 10px;"></span></h3>
 
             <form class="form-inline">
-                <input id="city2" class="typeahead form-control mr-sm-2" placeholder="Second city"
-                    aria-label="Search" type="text" autocomplete="on">
+                <input id="city2" class="typeahead form-control mr-sm-2" placeholder="Second city" aria-label="Search"
+                    type="text" autocomplete="on">
             </form>
 
             <ul class="navbar-nav">
                 <li>
-                    <button id="submit-cities-button" type="button" class="btn btn-primary">Go!</button>
+                    <button id="submit-cities-button" type="button" class="btn btn-primary bg-info">Go!</button>
                 </li>
             </ul>
 
@@ -64,14 +74,20 @@
     </nav>
 
     <!-- Bootstrap modal for weights and map visualization -->
-    <div class="modal fade bd-example-modal-lg" id="losModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
+    <div class="modal fade bd-example-modal-lg" id="losModal" tabindex="-1" role="dialog"
+        aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-scrollable">
+
             <div class="modal-content">
-
+                <div class="modal-header">
+                    <h3 class="modal-title">Select weight distibution</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 <div class="modal-body" id="circle-packing-body">
-                    <div id="map-for-modal"></div>
 
+                    <br>
                     <!-- profile selector dropdown -->
                     <form>
                         <div class="form-group row">
@@ -82,19 +98,16 @@
                                         <div class="input-group-text">Current profile </div>
                                     </div>
                                     <select id="profile-selector" name="profile-selector" class="custom-select"
-                                    aria-describedby="profile-selectorHelpBlock">
-                                    <option value="equal">Equal weights</option>
-                                    <option value="student">Student</option>
-                                    <option value="duck">Duck</option>
-                                    <option value="fish">Fish</option>
-                                </select>
-                                </div>                                
+                                        aria-describedby="profile-selectorHelpBlock">
+                                        <option value="equal">Equal weights</option>
+                                        <option value="student">Student</option>
+                                        <option value="duck">Duck</option>
+                                        <option value="fish">Fish</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </form>
-                      
-
-
 
                     <div id="circle-packing" class="bg-warning">
                     </div>
@@ -106,7 +119,7 @@
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-weights-modal-lg">
                         Edit weights
                     </button>
-                    
+
                     <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
@@ -115,59 +128,94 @@
         </div>
     </div>
 
-    
-
     <!-- Bootstrap modal for weight setting selection -->
     <div class="modal fade bd-weights-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-xl">
             <div class="modal-content">
-    
+
                 <div class="modal-header">
                     <h3 class="modal-title">Remaining weights: <span id="weight-points-remaining-span">0</span></h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-    
+
                 <div class="modal-body">
 
                     <!-- RESTAURANTS -->
                     <form>
                         <div class="form-group row">
-                            <div class="col col-4"><h3 id="restaurant-categ" class="text-dark">Restaurants <span id="restaurant-categ-span" class="text-info">value</span></h3></div>
+                            <div class="col col-4">
+                                <h3 id="restaurant-categ" class="text-dark">Restaurants <span id="restaurant-categ-span"
+                                        class="text-info">value</span></h3>
+                            </div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Meal, Inexpensive Restaurant</h5></label>
-                            <div class="col col-4"><input id="restaurant-meal-inexp" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Meal, Inexpensive Restaurant</h5>
+                            </label>
+                            <div class="col col-4"><input id="restaurant-meal-inexp" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Meal for 2 People, Mid-range Restaurant</h5></label>
-                            <div class="col col-4"><input id="restaurant-meal-mid" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Meal for 2 People, Mid-range Restaurant
+                                </h5>
+                            </label>
+                            <div class="col col-4"><input id="restaurant-meal-mid" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>McMeal at McDonalds (or Equivalent Combo Meal)</h5></label>
-                            <div class="col col-4"><input id="restaurant-meal-mcdonalds" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>McMeal at McDonalds (or Equivalent Combo
+                                    Meal)</h5>
+                            </label>
+                            <div class="col col-4"><input id="restaurant-meal-mcdonalds" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Domestic Beer (0.5 liter draught)</h5></label>
-                            <div class="col col-4"><input id="restaurant-meal-domestic-beer" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Domestic Beer (0.5 liter draught)</h5>
+                            </label>
+                            <div class="col col-4"><input id="restaurant-meal-domestic-beer" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Imported Beer (0.33 liter bottle)</h5></label>
-                            <div class="col col-4"><input id="restaurant-meal-imported-beer" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Imported Beer (0.33 liter bottle)</h5>
+                            </label>
+                            <div class="col col-4"><input id="restaurant-meal-imported-beer" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Cappuccino (regular)</h5></label>
-                            <div class="col col-4"><input id="restaurant-meal-cappucino" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Cappuccino (regular)</h5>
+                            </label>
+                            <div class="col col-4"><input id="restaurant-meal-cappucino" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Coke/Pepsi (0.33 liter bottle)</h5></label>
-                            <div class="col col-4"><input id="restaurant-meal-coke" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Coke/Pepsi (0.33 liter bottle)</h5>
+                            </label>
+                            <div class="col col-4"><input id="restaurant-meal-coke" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Water (0.33 liter bottle)</h5></label>
-                            <div class="col col-4"><input id="restaurant-meal-water" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Water (0.33 liter bottle)</h5>
+                            </label>
+                            <div class="col col-4"><input id="restaurant-meal-water" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                     </form>
                     <hr>
@@ -175,83 +223,162 @@
                     <!-- MARKETS -->
                     <form>
                         <div class="form-group row">
-                            <div class="col col-4"><h3 id="market-categ" class="text-dark">Markets <span id="market-categ-span" class="text-info">value</span></h3></div>
+                            <div class="col col-4">
+                                <h3 id="market-categ" class="text-dark">Markets <span id="market-categ-span"
+                                        class="text-info">value</span></h3>
+                            </div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Milk (regular), (1 liter)</h5></label>
-                            <div class="col col-4"><input id="market-milk" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Milk (regular), (1 liter)</h5>
+                            </label>
+                            <div class="col col-4"><input id="market-milk" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Loaf of Fresh White Bread (500g)</h5></label>
-                            <div class="col col-4"><input id="market-loaf" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Loaf of Fresh White Bread (500g)</h5>
+                            </label>
+                            <div class="col col-4"><input id="market-loaf" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Rice (white), (1kg)</h5></label>
-                            <div class="col col-4"><input id="market-rice" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Rice (white), (1kg)</h5>
+                            </label>
+                            <div class="col col-4"><input id="market-rice" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Eggs (regular) (12)</h5></label>
-                            <div class="col col-4"><input id="market-eggs" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Eggs (regular) (12)</h5>
+                            </label>
+                            <div class="col col-4"><input id="market-eggs" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Local Cheese (1kg)</h5></label>
-                            <div class="col col-4"><input id="market-cheese" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Local Cheese (1kg)</h5>
+                            </label>
+                            <div class="col col-4"><input id="market-cheese" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Chicken Fillets (1kg)</h5></label>
-                            <div class="col col-4"><input id="market-chicken" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Chicken Fillets (1kg)</h5>
+                            </label>
+                            <div class="col col-4"><input id="market-chicken" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Beef Round (1kg)</h5></label>
-                            <div class="col col-4"><input id="market-beef" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Beef Round (1kg)</h5>
+                            </label>
+                            <div class="col col-4"><input id="market-beef" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Apples (1kg)</h5></label>
-                            <div class="col col-4"><input id="market-apple" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Apples (1kg)</h5>
+                            </label>
+                            <div class="col col-4"><input id="market-apple" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Banana (1 kg)</h5></label>
-                            <div class="col col-4"><input id="market-banana" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Banana (1 kg)</h5>
+                            </label>
+                            <div class="col col-4"><input id="market-banana" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Oranges (1kg)</h5></label>
-                            <div class="col col-4"><input id="market-orange" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Oranges (1kg)</h5>
+                            </label>
+                            <div class="col col-4"><input id="market-orange" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Tomato (1kg)</h5></label>
-                            <div class="col col-4"><input id="market-tomato" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Tomato (1kg)</h5>
+                            </label>
+                            <div class="col col-4"><input id="market-tomato" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Potato (1kg)</h5></label>
-                            <div class="col col-4"><input id="market-potato" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Potato (1kg)</h5>
+                            </label>
+                            <div class="col col-4"><input id="market-potato" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Onion (1kg)</h5></label>
-                            <div class="col col-4"><input id="market-onion" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Onion (1kg)</h5>
+                            </label>
+                            <div class="col col-4"><input id="market-onion" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Lettuce (1 head)</h5></label>
-                            <div class="col col-4"><input id="market-lettuce" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Lettuce (1 head)</h5>
+                            </label>
+                            <div class="col col-4"><input id="market-lettuce" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Water (1.5 liter bottle)</h5></label>
-                            <div class="col col-4"><input id="market-water" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Water (1.5 liter bottle)</h5>
+                            </label>
+                            <div class="col col-4"><input id="market-water" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Bottle of Wine (Mid-Range)</h5></label>
-                            <div class="col col-4"><input id="market-wine" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Bottle of Wine (Mid-Range)</h5>
+                            </label>
+                            <div class="col col-4"><input id="market-wine" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Domestic Beer (0.5 liter bottle)</h5></label>
-                            <div class="col col-4"><input id="market-dombeer" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Domestic Beer (0.5 liter bottle)</h5>
+                            </label>
+                            <div class="col col-4"><input id="market-dombeer" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Imported Beer (0.33 liter bottle)</h5></label>
-                            <div class="col col-4"><input id="market-impbeer" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Imported Beer (0.33 liter bottle)</h5>
+                            </label>
+                            <div class="col col-4"><input id="market-impbeer" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Cigarettes 20 Pack (Marlboro)</h5></label>
-                            <div class="col col-4"><input id="market-cig" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Cigarettes 20 Pack (Marlboro)</h5>
+                            </label>
+                            <div class="col col-4"><input id="market-cig" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                     </form>
                     <hr>
@@ -259,39 +386,74 @@
                     <!-- TRANSPORTATION -->
                     <form>
                         <div class="form-group row">
-                            <div class="col col-4"><h3 id="transportation-categ" class="text-dark">Transportation <span id="transportation-categ-span" class="text-info">value</span></h3></div>
+                            <div class="col col-4">
+                                <h3 id="transportation-categ" class="text-dark">Transportation <span
+                                        id="transportation-categ-span" class="text-info">value</span></h3>
+                            </div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>One-way ticket</h5></label>
-                            <div class="col col-4"><input id="transportation-oneway" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>One-way ticket</h5>
+                            </label>
+                            <div class="col col-4"><input id="transportation-oneway" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Monthly pass</h5></label>
-                            <div class="col col-4"><input id="transportation-monthly" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Monthly pass</h5>
+                            </label>
+                            <div class="col col-4"><input id="transportation-monthly" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Taxi start</h5></label>
-                            <div class="col col-4"><input id="transportation-taxi-start" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Taxi start</h5>
+                            </label>
+                            <div class="col col-4"><input id="transportation-taxi-start" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Taxi 1km</h5></label>
-                            <div class="col col-4"><input id="transportation-taxi-1km" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Taxi 1km</h5>
+                            </label>
+                            <div class="col col-4"><input id="transportation-taxi-1km" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Taxi 1h waiting</h5></label>
-                            <div class="col col-4"><input id="transportation-taxi-1h" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Taxi 1h waiting</h5>
+                            </label>
+                            <div class="col col-4"><input id="transportation-taxi-1h" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Gasoline (1 liter)</h5></label>
-                            <div class="col col-4"><input id="transportation-gas" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Gasoline (1 liter)</h5>
+                            </label>
+                            <div class="col col-4"><input id="transportation-gas" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Volkswagen Golf</h5></label>
-                            <div class="col col-4"><input id="transportation-volkswagen" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Volkswagen Golf</h5>
+                            </label>
+                            <div class="col col-4"><input id="transportation-volkswagen" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Toyota Corolla</h5></label>
-                            <div class="col col-4"><input id="transportation-toyota" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Toyota Corolla</h5>
+                            </label>
+                            <div class="col col-4"><input id="transportation-toyota" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                     </form>
                     <hr>
@@ -299,19 +461,34 @@
                     <!-- UTILITIES -->
                     <form>
                         <div class="form-group row">
-                            <div class="col col-4"><h3 id="utility-categ" class="text-dark">Utilities per month <span id="utility-categ-span" class="text-info">value</span></h3></div>
+                            <div class="col col-4">
+                                <h3 id="utility-categ" class="text-dark">Utilities per month <span
+                                        id="utility-categ-span" class="text-info">value</span></h3>
+                            </div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Basics for 85mp apartment</h5></label>
-                            <div class="col col-4"><input id="utility-basics" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Basics for 85mp apartment</h5>
+                            </label>
+                            <div class="col col-4"><input id="utility-basics" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>1 min of prepaid mobile</h5></label>
-                            <div class="col col-4"><input id="utility-mobile" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>1 min of prepaid mobile</h5>
+                            </label>
+                            <div class="col col-4"><input id="utility-mobile" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Internet (60 Mbps)</h5></label>
-                            <div class="col col-4"><input id="utility-internet" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Internet (60 Mbps)</h5>
+                            </label>
+                            <div class="col col-4"><input id="utility-internet" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                     </form>
                     <hr>
@@ -319,19 +496,34 @@
                     <!-- SPORT AND LEISURE -->
                     <form>
                         <div class="form-group row">
-                            <div class="col col-4"><h3 id="leisure-categ" class="text-dark">Sports and Leisure <span id="leisure-categ-span" class="text-info">value</span></h3></div>
+                            <div class="col col-4">
+                                <h3 id="leisure-categ" class="text-dark">Sports and Leisure <span
+                                        id="leisure-categ-span" class="text-info">value</span></h3>
+                            </div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Fitness club (1 month pass)</h5></label>
-                            <div class="col col-4"><input id="leisure-fitness" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Fitness club (1 month pass)</h5>
+                            </label>
+                            <div class="col col-4"><input id="leisure-fitness" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Tennis court rent (1 hour)</h5></label>
-                            <div class="col col-4"><input id="leisure-tennis" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Tennis court rent (1 hour)</h5>
+                            </label>
+                            <div class="col col-4"><input id="leisure-tennis" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Cinema ticket</h5></label>
-                            <div class="col col-4"><input id="leisure-cinema" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Cinema ticket</h5>
+                            </label>
+                            <div class="col col-4"><input id="leisure-cinema" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                     </form>
                     <hr>
@@ -339,15 +531,26 @@
                     <!-- CHILDCARE -->
                     <form>
                         <div class="form-group row">
-                            <div class="col col-4"><h3 id="childcare-categ" class="text-dark">Childcare <span id="childcare-categ-span" class="text-info">value</span></h3></div>
+                            <div class="col col-4">
+                                <h3 id="childcare-categ" class="text-dark">Childcare <span id="childcare-categ-span"
+                                        class="text-info">value</span></h3>
+                            </div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Preschool (or Kindergarten)</h5></label>
-                            <div class="col col-4"><input id="childcare-kindergarten" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Preschool (or Kindergarten)</h5>
+                            </label>
+                            <div class="col col-4"><input id="childcare-kindergarten" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>International Primary School</h5></label>
-                            <div class="col col-4"><input id="childcare-primary-school" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>International Primary School</h5>
+                            </label>
+                            <div class="col col-4"><input id="childcare-primary-school" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                     </form>
                     <hr>
@@ -355,23 +558,42 @@
                     <!-- CLOTHING -->
                     <form>
                         <div class="form-group row">
-                            <div class="col col-4"><h3 id="clothing-categ" class="text-dark">Clothing <span id="clothing-categ-span" class="text-info">value</span></h3></div>
+                            <div class="col col-4">
+                                <h3 id="clothing-categ" class="text-dark">Clothing <span id="clothing-categ-span"
+                                        class="text-info">value</span></h3>
+                            </div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Pair of Jeans</h5></label>
-                            <div class="col col-4"><input id="clothing-jeans" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Pair of Jeans</h5>
+                            </label>
+                            <div class="col col-4"><input id="clothing-jeans" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Summer Dress</h5></label>
-                            <div class="col col-4"><input id="clothing-dress" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Summer Dress</h5>
+                            </label>
+                            <div class="col col-4"><input id="clothing-dress" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Nike Running Shoes</h5></label>
-                            <div class="col col-4"><input id="clothing-nike" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Nike Running Shoes</h5>
+                            </label>
+                            <div class="col col-4"><input id="clothing-nike" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Leather Business Shoes</h5></label>
-                            <div class="col col-4"><input id="clothing-business-shoe" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Leather Business Shoes</h5>
+                            </label>
+                            <div class="col col-4"><input id="clothing-business-shoe" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                     </form>
                     <hr>
@@ -379,23 +601,44 @@
                     <!-- RENT -->
                     <form>
                         <div class="form-group row">
-                            <div class="col col-4"><h3 id="rent-categ" class="text-dark">Rent per month <span id="rent-categ-span" class="text-info">value</span></h3></div>
+                            <div class="col col-4">
+                                <h3 id="rent-categ" class="text-dark">Rent per month <span id="rent-categ-span"
+                                        class="text-info">value</span></h3>
+                            </div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Apartment (1 bedroom) in City Centre</h5></label>
-                            <div class="col col-4"><input id="rent-1-center" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Apartment (1 bedroom) in City Centre</h5>
+                            </label>
+                            <div class="col col-4"><input id="rent-1-center" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Apartment (1 bedroom) Outside of Centre</h5></label>
-                            <div class="col col-4"><input id="rent-1-outside" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Apartment (1 bedroom) Outside of Centre
+                                </h5>
+                            </label>
+                            <div class="col col-4"><input id="rent-1-outside" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Apartment (3 bedrooms) in City Centre</h5></label>
-                            <div class="col col-4"><input id="rent-3-center" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Apartment (3 bedrooms) in City Centre</h5>
+                            </label>
+                            <div class="col col-4"><input id="rent-3-center" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Apartment (3 bedrooms) Outside of Centre</h5></label>
-                            <div class="col col-4"><input id="rent-3-outside" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Apartment (3 bedrooms) Outside of Centre
+                                </h5>
+                            </label>
+                            <div class="col col-4"><input id="rent-3-outside" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                     </form>
                     <hr>
@@ -403,15 +646,28 @@
                     <!-- BUY APARTMENT -->
                     <form>
                         <div class="form-group row">
-                            <div class="col col-4"><h3 id="apartment-categ" class="text-dark">Buy apartment <span id="apartment-categ-span" class="text-info">value</span></h3></div>
+                            <div class="col col-4">
+                                <h3 id="apartment-categ" class="text-dark">Buy apartment <span id="apartment-categ-span"
+                                        class="text-info">value</span></h3>
+                            </div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Price per Square Meter to Buy Apartment in City Centre</h5></label>
-                            <div class="col col-4"><input id="apartment-center" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Price per Square Meter to Buy Apartment in
+                                    City Centre</h5>
+                            </label>
+                            <div class="col col-4"><input id="apartment-center" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Price per Square Meter to Buy Apartment Outside of Centre</h5></label>
-                            <div class="col col-4"><input id="apartment-outside" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Price per Square Meter to Buy Apartment
+                                    Outside of Centre</h5>
+                            </label>
+                            <div class="col col-4"><input id="apartment-outside" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                     </form>
                     <hr>
@@ -419,15 +675,28 @@
                     <!-- SALARIES -->
                     <form>
                         <div class="form-group row">
-                            <div class="col col-4"><h3 id="salary-categ" class="text-dark">Salaries and financing <span id="salary-categ-span" class="text-info">value</span></h3></div>
+                            <div class="col col-4">
+                                <h3 id="salary-categ" class="text-dark">Salaries and financing <span
+                                        id="salary-categ-span" class="text-info">value</span></h3>
+                            </div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Average Monthly Net Salary (After Tax)</h5></label>
-                            <div class="col col-4"><input id="salary" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Average Monthly Net Salary (After Tax)
+                                </h5>
+                            </label>
+                            <div class="col col-4"><input id="salary" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-8 col-form-label"><h5><span style="margin-right: 2.3em;"></span>Mortgage Interest Rate in Percentages (%), Yearly, for 20 Years Fixed-Rate</h5></label>
-                            <div class="col col-4"><input id="salary-mortgage" type="number" min="0" oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275" class="form-control" placeholder="Weight value"></div>
+                            <label for="text" class="col-8 col-form-label">
+                                <h5><span style="margin-right: 2.3em;"></span>Mortgage Interest Rate in Percentages (%),
+                                    Yearly, for 20 Years Fixed-Rate</h5>
+                            </label>
+                            <div class="col col-4"><input id="salary-mortgage" type="number" min="0"
+                                    oninput="this.value = Math.abs(this.value); if(this.value >= 275) this.value = 275"
+                                    class="form-control" placeholder="Weight value"></div>
                         </div>
                     </form>
 
@@ -437,20 +706,53 @@
                     <button type="button" class="btn btn-primary" id="save-weights-btn">Save weights</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
-    
+
             </div>
         </div>
     </div>
 
     <!-- The main div containing everything -->
     <div class="container-fluid" style="padding: 1em 2em 0em 2em;">
-    
-    
-        <div class="container-fluid w-100 border border-dark">Vizu 1</div>
-        <h2>Selected city1 is <span id="city1-placeholder">city1</span></h2>
-        <h2>Selected city2 is <span id="city2-placeholder">city2</span></h2>
-    
-    
+
+        <div class="row">
+            <div class="col-lg-6 bg-info">
+                <div class="container-fluid w-100 border border-dark">Vizu 1</div>
+
+            </div>
+            <div class="col-lg-6 bg-warning">
+                <h4 class="text-center">Cities by Cost of Living</h4>
+                <div id="map-for-modal"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 bg-info">
+                <h2>Selected city1 is <span id="city1-placeholder">city1</span></h2>
+
+            </div>
+            <div class="col-lg-6 bg-warning">
+                <h2>Selected city2 is <span id="city2-placeholder">city2</span></h2>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 bg-warning">
+            </div>
+            <div class="col-lg-6 bg-info">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 bg-info">
+            </div>
+            <div class="col-lg-6 bg-warning">
+            </div>
+        </div>
+
+
+
+
+        
+
+
     </div>
 
 </body>
@@ -458,7 +760,7 @@
 <script src="js/navbar.js"></script>
 <script src="js/testing.js"></script>
 <script src="js/readSelectedCities.js"></script>
- 
+
 <script src="js/weights.js"></script>
 <script src="js/weights_io.js"></script>
 <script src="js/weights_hierarchical_circle_packing.js"></script>

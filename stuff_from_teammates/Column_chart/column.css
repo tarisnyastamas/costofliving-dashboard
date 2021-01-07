@@ -1,0 +1,13 @@
+#fill{
+    position: absolute;
+    color:coral;
+    font-weight: 400;
+    background: black;
+    left: 35%;
+    border: none;
+}
+
+#selectCity, #selectCategory{
+    color: darkcyan;
+    font-weight: 600;
+}

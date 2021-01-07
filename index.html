@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/weights_hierarchical_circle_packing.css">
 
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/map_for_modal.css">
+
     <!-- JS sources -->
     <script src="https://d3js.org/d3.v4.js"></script>
 
@@ -67,13 +70,7 @@
             <div class="modal-content">
 
                 <div class="modal-body" id="circle-packing-body">
-                    <div id="map-cost-of-living" class="bg-success">
-                        <h2>map with cost of living indexes goes here</h2>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                    </div>
+                    <div id="map-for-modal"></div>
 
                     <!-- profile selector dropdown -->
                     <form>
@@ -445,22 +442,8 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- The main div containing everything -->
     <div class="container-fluid" style="padding: 1em 2em 0em 2em;">
-    
-    
     
     
         <div class="container-fluid w-100 border border-dark">Vizu 1</div>
@@ -479,6 +462,9 @@
 <script src="js/weights.js"></script>
 <script src="js/weights_io.js"></script>
 <script src="js/weights_hierarchical_circle_packing.js"></script>
+
+<script type="text/javascript" src="js/d3-tip-map-for-modal.js" defer></script>
+<script type="text/javascript" src="js/map_for_modal.js" defer></script>
 
 
 </html>

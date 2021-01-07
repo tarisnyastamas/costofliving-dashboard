@@ -1,21 +1,22 @@
 let circlePackingContainer = document.getElementById("circle-packing");
 let modalBody = document.querySelector("#circle-packing-body");
 
+let saveWeightsButton = document.querySelector("#save-weights-btn");
+
+saveWeightsButton.addEventListener("click", () => {
+    console.log("save weight button clicked");
+    weights = updateIOWeights();
+    profileManualInput = true;
+})
+
 let svg = d3.select("#circle-packing")
     .append("svg")
 
-function redrawCirclePacking() {
+function redrawCirclePacking(data_src) {
 
     // setting the size of the svg element to the size of the container that is containing the whole visualization
     width = circlePackingContainer.clientWidth;
     height = circlePackingContainer.clientHeight;
-
-    //delete the old
-    // let domSvg = document.querySelector("#circle-packing");
-
-    // while (domSvg.hasChildNodes()) {
-    //     domSvg.removeChild(domSvg.firstChild);
-    // }
 
     svg
         .attr("width", circlePackingContainer.clientWidth)
@@ -35,17 +36,15 @@ function redrawCirclePacking() {
         .size([diameter - margin, diameter - margin])
         .padding(2);
 
-    let testFilenameOnGithub = "flare.json";
-    let filenameOnGithub = "equal_weights.json";
-
-    d3.json("https://raw.githubusercontent.com/feketebence/costofliving-dashboard/main/data_munging/profile_weights/equal_weights.json", function (error, root) {
+    d3.json('https://raw.githubusercontent.com/feketebence/costofliving-dashboard/main/data_munging/profile_weights/equal_weights.json', function (error, root) {
         if (error) throw error;
 
         console.log(root);
 
-        if(profileSelected) {
-            console.log(profileSelected)
-            // root = weight
+        if(profileSelected || profileManualInput) {
+            console.log("profile selected is " + profileSelected)
+            root = data_src;
+            root = weightsOutput;
         }
          
 
@@ -74,23 +73,9 @@ function redrawCirclePacking() {
                 if (d.data.size === undefined) {
                     return d.data.name +" "+ d.data.category_size;
                 } else {
-                    return d.data.name + " Weight: " + d.data.size;
+                    return d.data.name + " " + d.data.size;
                 }
             });
-
-        // var text2 = g.selectAll("text")
-        //     .data(nodes)
-        //     .enter().append("text")
-        //     .attr("class", "label")
-        //     .style("fill-opacity", function (d) { return d.parent === root ? 1 : 0; })
-        //     .style("display", function (d) { return d.parent === root ? "inline" : "none"; })
-        //     .text(function (d) {
-        //         if (d.data.size === undefined) {
-        //             return d.data.name + d.data.category_size;
-        //         } else {
-        //             return d.data.name + "\n Size: " + d.data.size;
-        //         }
-        //     });
 
         var node = g.selectAll("circle,text");
 
@@ -126,12 +111,14 @@ function redrawCirclePacking() {
 
 }
 
-redrawCirclePacking();
+redrawCirclePacking(weights);
 
-window.addEventListener("resize", redrawCirclePacking);
+window.addEventListener("resize", () => {
+    redrawCirclePacking(weights)
+});
 
 $('#losModal').on('show.bs.modal', function(e) {
-    setTimeout(() => { redrawCirclePacking()}, 500);
+    setTimeout(() => { redrawCirclePacking(weights)}, 500);
 });
 
 

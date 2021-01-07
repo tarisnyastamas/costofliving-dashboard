@@ -670,6 +670,7 @@ let profileSelectorDropdown = document.querySelector("#profile-selector");
 
 let profileWeights = {};
 let profileSelected = false;
+let profileManualInput = false;
 
 profileSelectorDropdown.addEventListener('change', () => {
     console.log("selection changed to " + profileSelectorDropdown.value);
@@ -680,8 +681,7 @@ profileSelectorDropdown.addEventListener('change', () => {
     let url = 'https://raw.githubusercontent.com/feketebence/costofliving-dashboard/main/data_munging/profile_weights/' + selectedProflie + '_weights.json';
     console.log("Weight data source = " + url);
 
-    profileSelected = true;
-    redrawCirclePacking();
+    
 
     getJSON(url, function (err, data) {
         if (err != null) {
@@ -694,6 +694,9 @@ profileSelectorDropdown.addEventListener('change', () => {
             // function call to update input field values
             updateWeights(weights, profileWeights);
             updateFormValues();
+
+            profileSelected = true;
+            redrawCirclePacking(weights);
         }
     });
 

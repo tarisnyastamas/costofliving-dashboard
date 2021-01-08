@@ -85116,6 +85116,11 @@ var json_data = {
 
 var data = json_data;
 
+
+    function reset_values(){
+        window.location.reload();
+    }
+
         //array for cities    
         var a = []
 
@@ -85124,6 +85129,8 @@ var data = json_data;
             //console.info(data[key])
             a.push(key)
         }
+
+        a.sort();
 
         //array for categories
         var b = ["restaurants","markets","transportation","utilities","leisure","childcare","clothing","rent","apartment","salary"];
@@ -85160,29 +85167,41 @@ var data = json_data;
         });
         
         var categories_data = { restaurants : ["meal_inexpensive_restaurant","meal_mid_range_restaurant","mcdonalds_combo","domestic_beer","imported_beer","cappucino","coke_pepsi","water"],
-            markets : ["milk", "bread", "eggs", "cheese", "chicken", "banana", "tomato", "potato", "lettuce", "water", "beer", "cigarettes"],
-                              transportation:["one_way_ticket","monthly_pass","taxi_start","taxi_1km","taxi_1h","gasoline","volkswagen","toyota"],
-                              utilities:["basic","prepaid_mobile","internet"],
+            markets : ["milk", "bread", "rice", "eggs", "cheese", "chicken", "beef", "apple", "banana", "orange", "tomato", "potato", "onion", "lettuce", "water", "wine", "beer", "imported_beer", "cigarettes"],
+                              transportation:["one_way_ticket","monthly_pass","taxi_start","taxi_1km","taxi_1h","gasoline"],
+                              utilities:["basic","internet"],
                               leisure:["fitness_club","tennis_court","cinema"],
                               childcare:["preschool", "primary_school"],
                               clothing: ["pair_of_jeans","summer_dress","running_shoes","business_shoes"],
                                rent: ["ap_1bedroom_center","ap_1bedroom_outside","ap_3bedroom_center","ap_3bedroom_outside"],
                               apartment:["buy_apartment_center","buy_apartment_outside"],
-                              salary: ["net_salary","mortgage_interest"]}
-                                      
+                              salary: ["net_salary"]}
+                                   
         var items = []
         
-        function fill_items(){
-            for (const hoppa in categories_data[category]){
-            items.push({item : categories_data[category][hoppa], value : parseFloat(data[city][category][categories_data[category][hoppa]]) });
+    function fill_items(){
+    for (const hoppa in categories_data[category]){
+                
+        if (category == "restaurants")  items.push({item : categories_data[category][hoppa], value : parseFloat(data[city][category][categories_data[category][hoppa]]), color:"red", max_value: 110 });
+            else if (category == "markets") items.push({item : categories_data[category][hoppa], value : parseFloat(data[city][category][categories_data[category][hoppa]]), color: "lightgreen", max_value: 50 });
+                else if (category == "transportation") items.push({item : categories_data[category][hoppa], value : parseFloat(data[city][category][categories_data[category][hoppa]]), color: "brown", max_value: 170 });
+                    else if (category == "utilities") items.push({item : categories_data[category][hoppa], value : parseFloat(data[city][category][categories_data[category][hoppa]]), color: "orange", max_value: 490 });
+                        else if (category == "leisure") items.push({item : categories_data[category][hoppa], value : parseFloat(data[city][category][categories_data[category][hoppa]]), color: "purple", max_value: 115 });
+                            else if (category == "childcare") items.push({item : categories_data[category][hoppa], value : parseFloat(data[city][category][categories_data[category][hoppa]]), color: "yellow", max_value: 30000 });
+                                else if (category == "clothing") items.push({item : categories_data[category][hoppa], value : parseFloat(data[city][category][categories_data[category][hoppa]]), color: "gray", max_value :190 });
+                                    else if (category == "rent") items.push({item : categories_data[category][hoppa], value : parseFloat(data[city][category][categories_data[category][hoppa]]), color: "cyan", max_value:5400 });
+                                        else if (category == "apartment") items.push({item : categories_data[category][hoppa], value : parseFloat(data[city][category][categories_data[category][hoppa]]), color: "coral", max_value: 26300 });
+                                            else if (category == "salary") items.push({item : categories_data[category][hoppa], value : parseFloat(data[city][category][categories_data[category][hoppa]]), color: "green", max_value: 7000 });
+
             }
-        
-                var data_viz = items;
+            
+               
+               var data_viz = items;
                         
                 // set the dimensions and margins of the graph
-                    var margin = {top: 30, right: 30, bottom: 70, left: 60},
+                    var margin = {top: 30, right: 60, bottom: 150, left: 112},
                         width = 460 - margin.left - margin.right,
-                        height = 400 - margin.top - margin.bottom;
+                        height = 500 - margin.top - margin.bottom;
 
                     // append the svg object to the body of the page
                     var svg = d3.select("#my_dataviz")
@@ -85192,6 +85211,15 @@ var data = json_data;
                       .append("g")
                         .attr("transform",
                               "translate(" + margin.left + "," + margin.top + ")");
+                    
+                    svg .append("text")
+                        .attr("x", (width / 2) - 200)             
+                        .attr("y", 0 - (margin.top / 2))
+                        .attr("text-anchor", "middle")  
+                        .style("font", "20px calibri")
+                        .style("fill","#e35614")
+                        .style("font-weight",800)
+                        .text(city);
 
                     // Parse the Data
 
@@ -85203,12 +85231,13 @@ var data = json_data;
             
                       svg.append("text")             
                         .attr("transform",
-                                "translate(" + (width/2) + " ," + 
-                                    (height + margin.top + 20) + ")")
+                                "translate(" + (width/2 + 175) + " ," + 
+                                    (height + margin.top + 7) + ")")
                         .style("text-anchor", "middle")
-                        .style("font", "14px calibri")
+                        .style("font", "18px calibri")
                         .style("font-weight",800)
                         .text("Items");
+            
             
                     svg.append("g")
                       .attr("transform", "translate(0," + height + ")")
@@ -85222,19 +85251,19 @@ var data = json_data;
 
                     // Add Y axis
                     var y = d3.scaleLinear()
-                      .domain([0, d3.max(items, function(d){
-                            return d.value;
+                      .domain([0, d3.max(data_viz, function(d){
+                            return d.max_value;
                       })])
             
                       .range([ height, 0]);
             
                     svg.append("text")
                           .attr("transform", "rotate(-90)")
-                          .attr("y", 0 - margin.left)
+                          .attr("y", 30 - margin.left)
                           .attr("x",0 - (height / 2))
                           .attr("dy", "1em")
                           .style("text-anchor", "middle")
-                          .style("font", "14px calibri")
+                          .style("font", "18px calibri")
                           .style("font-weight",800)
                           .text("Price (Euros)");
             
@@ -85246,14 +85275,14 @@ var data = json_data;
                     .offset([-10, 0])
                     .html(function(d) {
                     
-                           return d.item + " " + d.value;
+                           return d.item + ": " + d.value;
 
                     });
                     svg.call(tip);
 
 
                     // Bars
-                    svg.selectAll("mybar")
+                var full_viz = svg.selectAll("mybar")
                       .data(data_viz)
                       .enter()
                       .append("rect")
@@ -85261,62 +85290,16 @@ var data = json_data;
                         .attr("y", function(d) { return y(d.value); })
                         .attr("width", x.bandwidth())
                         .attr("height", function(d) { return height - y(d.value); })
-                        .attr("fill", "#69b3a2")
+                       // .attr("fill", "#69b3a2") 
                         .on("mouseover",tip.show).attr("cursor","pointer")
                         .on("mouseout", tip.hide);
-
-                    
             
-                // set the dimensions and margins of the graph
-        /*var margin = {top: 10, right: 10, bottom: 10, left: 10},
-          width = 445 - margin.left - margin.right,
-          height = 445 - margin.top - margin.bottom;
-
-        // append the svg object to the body of the page
-        var svg = d3.select("#my_dataviz")
-        .append("svg")
-          .attr("width", width + margin.left + margin.right)
-          .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-          .attr("transform",
-                "translate(" + margin.left + "," + margin.top + ")");
-
-       
-
-          // Give the data to this cluster layout:
-          var root = d3.hierarchy(items).sum(function(d){ return d.value}) // Here the size of each leave is given in the 'value' field in input data
+                full_viz.attr("fill", function(d){ return d.color});
             
-          console.log(root)
-          // Then d3.treemap computes the position of each element of the hierarchy
-          d3.treemap()
-            .size([width, height])
-            .padding(2)
-            (root)
+            //reinitialize data
+            
+            items = []
 
-          // use this information to add rectangles:
-          svg
-            .selectAll("rect")
-            .data(root.leaves())
-            .enter()
-            .append("rect")
-              .attr('x', function (d) { return d.x0; })
-              .attr('y', function (d) { return d.y0; })
-              .attr('width', function (d) { return d.x1 - d.x0; })
-              .attr('height', function (d) { return d.y1 - d.y0; })
-              .style("stroke", "black")
-              .style("fill", "slateblue")
-
-          // and to add the text labels
-          svg
-            .selectAll("text")
-            .data(root.leaves())
-            .enter()
-            .append("text")
-              .attr("x", function(d){ return d.x0+5})    // +10 to adjust position (more right)
-              .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
-              .text(function(d){ return d.data.item })
-              .attr("font-size", "15px")
-              .attr("fill", "white")*/
         }
                               
      

@@ -1,5 +1,291 @@
 let data = dataJson3cities;
 
+let weightsOutput = {
+    "name": "nm",
+    "children": [
+      {
+        "name": "Restaurants",
+        "category_size": 40,
+        "children": [
+          {
+            "name": "Meal, Inexpensive Restaurant",
+            "size": 50
+          },
+          {
+            "name": "Three-course meal for 2 People",
+            "size": 2
+          },
+          {
+            "name": "Meal at McDonalds",
+            "size": 5
+          },
+          {
+            "name": "Domestic Beer (0.5l)",
+            "size": 5
+          },
+          {
+            "name": "Imported Beer (0.33l)",
+            "size": 5
+          },
+          {
+            "name": "Cappuccino",
+            "size": 5
+          },
+          {
+            "name": "Coke/Pepsi (0.33l)",
+            "size": 5
+          },
+          {
+            "name": "Water (0.33l)",
+            "size": 5
+          }
+        ]
+      },
+      {
+        "name": "Markets",
+        "category_size": 95,
+        "children": [
+          {
+            "name": "Milk",
+            "size": 5
+          },
+          {
+            "name": "White Bread",
+            "size": 5
+          },
+          {
+            "name": "Rice",
+            "size": 5
+          },
+          {
+            "name": "Eggs",
+            "size": 5
+          },
+          {
+            "name": "Local Cheese",
+            "size": 5
+          },
+          {
+            "name": "Chicken Fillets",
+            "size": 5
+          },
+          {
+            "name": "Beef Round",
+            "size": 5
+          },
+          {
+            "name": "Apples",
+            "size": 5
+          },
+          {
+            "name": "Banana",
+            "size": 5
+          },
+          {
+            "name": "Oranges",
+            "size": 5
+          },
+          {
+            "name": "Tomato",
+            "size": 5
+          },
+          {
+            "name": "Potato",
+            "size": 5
+          },
+          {
+            "name": "Onion",
+            "size": 5
+          },
+          {
+            "name": "Lettuce",
+            "size": 5
+          },
+          {
+            "name": "Water",
+            "size": 5
+          },
+          {
+            "name": "Bottle of Wine",
+            "size": 5
+          },
+          {
+            "name": "Domestic Beer",
+            "size": 5
+          },
+          {
+            "name": "Imported Beer",
+            "size": 5
+          },
+          {
+            "name": "Cigarettes",
+            "size": 5
+          }
+        ]
+      },
+      {
+        "name": "Transportation",
+        "category_size": 40,
+        "children": [
+          {
+            "name": "One-way Ticket",
+            "size": 5
+          },
+          {
+            "name": "Monthly Pass",
+            "size": 5
+          },
+          {
+            "name": "Taxi Start",
+            "size": 5
+          },
+          {
+            "name": "Taxi 1km",
+            "size": 5
+          },
+          {
+            "name": "Taxi 1hour waiting",
+            "size": 5
+          },
+          {
+            "name": "1l Gasoline",
+            "size": 5
+          },
+          {
+            "name": "Volkswagen Golf",
+            "size": 0.1
+          },
+          {
+            "name": "Toyota Corolla Sedan",
+            "size": 0.01
+          }
+        ]
+      },
+      {
+        "name": "Utilities",
+        "category_size": 15,
+        "children": [
+          {
+            "name": "Basics for 85m2 Ap",
+            "size": 5
+          },
+          {
+            "name": "1 min. of Prepaid Mobile",
+            "size": 5
+          },
+          {
+            "name": "Internet ( >60 Mbps)",
+            "size": 5
+          }
+        ]
+      },
+      {
+        "name": "Leisure",
+        "category_size": 15,
+        "children": [
+          {
+            "name": "Gym, monthly Fee",
+            "size": 5
+          },
+          {
+            "name": "Tennis Court Rent",
+            "size": 5
+          },
+          {
+            "name": "Cinema",
+            "size": 5
+          }
+        ]
+      },
+      {
+        "name": "Childcare",
+        "category_size": 10,
+        "children": [
+          {
+            "name": "Kindergarten",
+            "size": 5
+          },
+          {
+            "name": "International Primary School",
+            "size": 5
+          }
+        ]
+      },
+      {
+        "name": "Clothing",
+        "category_size": 20,
+        "children": [
+          {
+            "name": "Jeans (Levis 501 Or Similar)",
+            "size": 5
+          },
+          {
+            "name": "Summer Dress in a Chain Store",
+            "size": 5
+          },
+          {
+            "name": "Nike Running Shoes",
+            "size": 5
+          },
+          {
+            "name": "Men Leather Business Shoes",
+            "size": 5
+          }
+        ]
+      },
+      {
+        "name": "Rent",
+        "category_size": 20,
+        "children": [
+          {
+            "name": "Apartment (1 bedroom) in centre",
+            "size": 5
+          },
+          {
+            "name": "Apartment (1 bedroom) outside of centre",
+            "size": 5
+          },
+          {
+            "name": "Apartment (3 bedrooms) in centre",
+            "size": 5
+          },
+          {
+            "name": "Apartment (3 bedrooms) outside of centre",
+            "size": 5
+          }
+        ]
+      },
+      {
+        "name": "Apartment",
+        "category_size": 10,
+        "children": [
+          {
+            "name": "Price per m² to buy apartment in centre",
+            "size": 5
+          },
+          {
+            "name": "Price per m² to buy apartment outside of centre",
+            "size": 5
+          }
+        ]
+      },
+      {
+        "name": "Salary",
+        "category_size": 10,
+        "children": [
+          {
+            "name": "Avg. Monthly Net Salary",
+            "size": 5
+          },
+          {
+            "name": "Mortgage Interest Rate (%), Yearly, for 20 Years Fixed-Rate",
+            "size": 5
+          }
+        ]
+      }
+    ]
+};
+
 let itemNames = {
     restaurants: {
         meal_inexpensive_restaurant: {
@@ -241,7 +527,7 @@ let itemNames = {
             nameShort: "Mortgage (%)"
         }
     }
-}
+};
 
 // itemNames.city.category.clothing.business_shoes['nameLong']
 
@@ -301,8 +587,53 @@ function buildData(data) {
     return builtData;
 }
 
-rebuiltData = buildData(data);
+let rebuiltData = buildData(data);
 
-// console.log(rebuiltData);
+function fillDataWithWeights(data, weightsOutput) {
+
+    for (let [cityKey, city] of Object.entries(data)) {
+
+        let categIdx = 0;
+        for (let [categoryKey, category] of Object.entries(data[cityKey].category)) {
+
+            let categoryWeightSum = 0;
+            let categoryValueSum = 0;
+            let categorySizeSum = 0;
+            let itemIdx = 0;
+
+            for (let [itemKey, item] of Object.entries(data[cityKey].category[categoryKey])) {
+                let regex = /categ/g;
+                if (itemKey.match(regex) == null) {
+
+                    let currentValueFromData = data[cityKey].category[categoryKey][itemKey].value;
+                    let currentWeightFromOutput = weightsOutput.children[categIdx].children[itemIdx].size;
+
+                    data[cityKey].category[categoryKey][itemKey].weight = currentWeightFromOutput;
+                    categoryWeightSum += currentWeightFromOutput;
+                    categoryValueSum += currentValueFromData;
+
+                    let currentSize = currentWeightFromOutput * currentValueFromData;
+                    data[cityKey].category[categoryKey][itemKey].size = currentSize;
+
+                    categorySizeSum += currentSize;
+
+                    itemIdx++;
+                }
+            }
+
+            data[cityKey].category[categoryKey].categWeightSum = categoryWeightSum;
+            data[cityKey].category[categoryKey].categValueSum = categoryValueSum;
+            data[cityKey].category[categoryKey].categSizeSum = categorySizeSum;
+            categIdx++;
+        }
+    }
+
+    return data;
+
+}
+
+let finalData = fillDataWithWeights(rebuiltData, weightsOutput);
+
+// console.log(finalData);
 
 

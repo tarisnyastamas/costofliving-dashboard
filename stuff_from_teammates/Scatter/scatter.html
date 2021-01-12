@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        
+        
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="scatter.js" defer></script>
+        <script src="https://d3js.org/d3.v4.js" ></script>
+        <script src="d3-tip.js"></script>
+        <link rel="stylesheet" href="scatter.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+            
+    </head>
+
+
+    <body>
+    
+        <select id="selectCategory" onchange="change_item(); change_item_2()">
+            <option>Choose a category</option>
+        </select>
+        
+        <select id="selectItem" >
+            <option>Choose an item</option>
+        </select>
+        
+        <select id="selectItem_2">
+            <option>Choose another item</option>
+        </select>
+        
+        
+        <div class="scatter"></div>
+        
+        <button id=fill onclick="fill_items(); update(scatter_data);" >Submit your choice</button>
+
+    
+    </body>
+
+</html>
